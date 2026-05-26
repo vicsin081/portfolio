@@ -1,26 +1,7 @@
-﻿# VPN Gateway: 30-45 min deploy time, ~$1 USD/day
-resource "azurerm_public_ip" "vpn" {
-  name                = "pip-vpn-gateway"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
-  allocation_method   = "Static"
-  sku                 = "Standard"
-}
+﻿# VPN Gateway: 30-45 min deploy time, ~$1 USD/day -- comment out for peering-only labs
 
-resource "azurerm_virtual_network_gateway" "vpn" {
-  name                = "vgw-hub"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
-  type     = "Vpn"
-  vpn_type = "RouteBased"
-  sku      = "VpnGw1"
-  ip_configuration {
-    name                          = "vnetGatewayConfig"
-    public_ip_address_id          = azurerm_public_ip.vpn.id
-    private_ip_address_allocation = "Dynamic"
-    subnet_id                     = azurerm_subnet.gateway.id
-  }
-}
+# resource "azurerm_public_ip" "vpn" { ... }
+# resource "azurerm_virtual_network_gateway" "vpn" { ... }
 
 # Azure Bastion -- browser-based SSH without exposing port 22
 resource "azurerm_public_ip" "bastion" {
