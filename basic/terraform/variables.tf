@@ -7,7 +7,7 @@
 variable "location" {
   description = "Azure region"
   type        = string
-  default     = "Southeast Asia"
+  default     = "Australia East"
 }
 
 variable "admin_username" {
