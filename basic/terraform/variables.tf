@@ -25,5 +25,5 @@ variable "admin_password" {
 variable "vm_size" {
   description = "VM size"
   type        = string
-  default     = "Standard_B1s"
+  default     = "Standard_B2s_v2"
 }
