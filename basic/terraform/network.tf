@@ -1,4 +1,4 @@
-﻿# Hub VNet
+﻿# Hub VNet — central hub for gateway transit and Bastion access
 resource "azurerm_virtual_network" "hub" {
   name                = "vnet-hub"
   address_space       = ["10.0.0.0/16"]
@@ -6,7 +6,7 @@ resource "azurerm_virtual_network" "hub" {
   resource_group_name = azurerm_resource_group.main.name
 }
 
-# Azure-hardcoded name -- do not rename
+# Azure-hardcoded subnet name — do not rename or VPN Gateway deployment fails
 resource "azurerm_subnet" "gateway" {
   name                 = "GatewaySubnet"
   resource_group_name  = azurerm_resource_group.main.name
@@ -14,7 +14,7 @@ resource "azurerm_subnet" "gateway" {
   address_prefixes     = ["10.0.1.0/27"]
 }
 
-# Azure-hardcoded name -- do not rename
+# Azure-hardcoded subnet name — do not rename or Bastion deployment fails
 resource "azurerm_subnet" "bastion" {
   name                 = "AzureBastionSubnet"
   resource_group_name  = azurerm_resource_group.main.name
@@ -22,6 +22,7 @@ resource "azurerm_subnet" "bastion" {
   address_prefixes     = ["10.0.2.0/26"]
 }
 
+# Spoke VNet — isolated workload network
 resource "azurerm_virtual_network" "spoke" {
   name                = "vnet-spoke"
   address_space       = ["10.1.0.0/16"]
@@ -36,7 +37,7 @@ resource "azurerm_subnet" "workload" {
   address_prefixes     = ["10.1.1.0/24"]
 }
 
-# VNet peering is not automatic in both directions
+# VNet peering is not automatic in both directions — two separate resources required
 resource "azurerm_virtual_network_peering" "hub_to_spoke" {
   name                         = "hub-to-spoke"
   resource_group_name          = azurerm_resource_group.main.name
@@ -60,9 +61,23 @@ resource "azurerm_network_security_group" "spoke_nsg" {
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
 
+  # Standard LB preserves client source IP — Internet rule required for actual browser traffic
   security_rule {
-    name                       = "Allow-HTTP-from-LB"
+    name                       = "Allow-HTTP-from-Internet"
     priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "Internet"
+    destination_address_prefix = "*"
+  }
+
+  # AzureLoadBalancer tag covers health probe traffic from 168.63.129.16
+  security_rule {
+    name                       = "Allow-HTTP-from-LB-Probe"
+    priority                   = 110
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
@@ -74,7 +89,7 @@ resource "azurerm_network_security_group" "spoke_nsg" {
 
   security_rule {
     name                       = "Allow-SSH-from-Bastion"
-    priority                   = 110
+    priority                   = 120
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
