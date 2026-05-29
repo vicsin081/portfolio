@@ -38,13 +38,15 @@ Hub-spoke network covering core AZ-104 networking topics: VNet peering, Standard
 
 Five real issues hit and resolved during deployment — region capacity limits, subscription quota, Terraform state corruption after interrupted destroy, and NSG source IP behaviour with Standard LB. Every fix is a separate commit with a root cause explanation.
 
-→ [Architecture + Deploy instructions](basic/README.md) &nbsp;·&nbsp; [Troubleshooting log](basic/troubleshoot.md)
+→ [Architecture + Deploy instructions](01-hub-spoke-network/README.md) &nbsp;·&nbsp; [Troubleshooting log](01-hub-spoke-network/troubleshoot.md)
 
 ---
 
-### 02 — AKS + CI/CD + RBAC + Monitor &nbsp; *(in progress)*
+### [02 — AKS + CI/CD + RBAC + Monitor](02-aks-cicd-monitor/)
 
 GitHub Actions pipeline deploying AKS with Managed Identity, scoped RBAC roles, and Log Analytics observability.
+
+→ [Architecture + Deploy instructions](02-aks-cicd-monitor/README.md)
 
 ---
 
@@ -57,6 +59,7 @@ GitHub Actions pipeline deploying AKS with Managed Identity, scoped RBAC roles, 
 | Load Balancing | Standard LB, health probes, backend pools |
 | Secure Access | Azure Bastion, VPN Gateway |
 | Governance | Resource groups, tagging, budget alerts |
-| Identity & RBAC | Managed Identity, scoped roles *(project 02)* |
-| Containers | AKS, ACR *(project 02)* |
-| Monitoring | Log Analytics, alerts *(project 02)* |
+| Identity & RBAC | Managed Identity, scoped RBAC roles |
+| Containers | AKS, ACR |
+| Monitoring | Log Analytics, Container Insights, metric alerts |
+| CI/CD | GitHub Actions + Terraform remote state (Azure Blob) |
