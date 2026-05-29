@@ -157,7 +157,29 @@ Take these after `terraform apply` completes.
 | 5 | Portal → Log Analytics workspaces → law-homelab-aks → Logs | Run `KubePodInventory \| take 10`, capture query results |
 | 6 | Portal → Monitor → Alerts → Alert rules | CPU alert rule listed |
 
-Save screenshots to `screenshots/` and reference them in this file.
+**GitHub Actions — all steps green:**
+
+![GitHub Actions Success](screenshots/01-github-actions-success.png)
+
+**AKS cluster overview:**
+
+![AKS Cluster Overview](screenshots/02-aks-cluster-overview.png)
+
+**Node pool — node Ready:**
+
+![AKS Node Ready](screenshots/03-aks-node-ready.png)
+
+**ACR — AcrPull role assignment to AKS kubelet identity:**
+
+![ACR AcrPull Role Assignment](screenshots/04-acr-acrpull-role-assignment.png)
+
+**Log Analytics — KubePodInventory query with results:**
+
+![Log Analytics KubePod Query](screenshots/05-log-analytics-kubepod-query.png)
+
+**Monitor — CPU alert rule enabled:**
+
+![Monitor Alert CPU](screenshots/06-monitor-alert-cpu.png)
 
 ## Cost Controls
 
@@ -198,6 +220,11 @@ Estimated cost: ~AUD 8–12/day when running (AKS control plane free; VM + ACR +
 | `rbac.tf` | AcrPull role assignment for AKS identity |
 | `outputs.tf` | Cluster name, ACR login server, kubectl command |
 | `../../.github/workflows/deploy-aks.yml` | GitHub Actions CI/CD pipeline |
+
+## Troubleshooting
+
+See [troubleshoot.md](troubleshoot.md) for issues encountered during deployment and their resolutions.
+Each fix is preserved as a separate commit in git history.
 
 ## Cleanup
 
