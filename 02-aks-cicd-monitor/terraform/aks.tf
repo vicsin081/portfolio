@@ -10,6 +10,8 @@ resource "azurerm_kubernetes_cluster" "main" {
     vm_size    = var.node_vm_size
   }
 
+  oidc_issuer_enabled = true
+
   # System-assigned identity — no credential rotation needed
   identity {
     type = "SystemAssigned"
