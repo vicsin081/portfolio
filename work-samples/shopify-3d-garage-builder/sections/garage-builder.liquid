@@ -1,0 +1,298 @@
+{% comment %}
+  3garage-builder.liquid
+  3D Garage Storage Configurator section.
+  Modular — each JS/CSS file has a single responsibility.
+{% endcomment %}
+
+{%- liquid
+  assign gb_id = section.id
+
+  assign gb_base4 = all_products[section.settings.base_product_4]
+  assign gb_base5 = all_products[section.settings.base_product_5]
+  assign gb_base6 = all_products[section.settings.base_product_6]
+-%}
+
+{%- comment -%} Fonts — async, non-render-blocking {%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Archivo:wght@400;500;700;900&display=swap"
+  media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Archivo:wght@400;500;700;900&display=swap">
+</noscript>
+
+{{ 'gb-styles.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%} ── Data blobs ──────────────────────────────────────────── {%- endcomment -%}
+
+<script type="application/json" id="gb-products-{{ gb_id }}">
+  {%- render 'gb-products-json', collection_handle: section.settings.collection_handle -%}
+</script>
+
+<script type="application/json" id="gb-config-{{ gb_id }}">
+  {%- render 'gb-config-json' -%}
+</script>
+
+{%- comment -%}
+  Explicit GLB URL map — each entry uses asset_url so the exact CDN URL
+  (with the correct per-file version hash) is embedded at render time.
+  gb-shopify-data.js reads this blob; no pattern-substitution needed.
+{%- endcomment -%}
+<script type="application/json" id="gb-glb-urls-{{ gb_id }}">
+  {
+    "MOD-2DBC-GS":      {{ 'MOD-2DBC-GS.glb'      | asset_url | json }},
+    "MOD-2DSC-GS":      {{ 'MOD-2DSC-GS.glb'      | asset_url | json }},
+    "MOD-2DSWC-GS":     {{ 'MOD-2DSWC-GS.glb'     | asset_url | json }},
+    "MOD-2DTC-GS":      {{ 'MOD-2DTC-GS.glb'       | asset_url | json }},
+    "MOD-3DBC-GS":      {{ 'MOD-3DBC-GS.glb'      | asset_url | json }},
+    "MOD-SBX2-GS":      {{ 'MOD-SBX2-GS.glb'      | asset_url | json }},
+    "MOD-1365WS-GS":    {{ 'MOD-1365WS-GS.glb'    | asset_url | json }},
+    "MOD-1365SWS-GS":   {{ 'MOD-1365SWS-GS.glb'   | asset_url | json }},
+    "MOD-2005WS-GS":    {{ 'MOD-2005WS-GS.glb'     | asset_url | json }},
+    "MOD-2005SWS-GS":   {{ 'MOD-2005SWS-GS.glb'   | asset_url | json }},
+    "MOD-MBHP-GS":      {{ 'MOD-MBHP-GS.glb'      | asset_url | json }}
+  }
+</script>
+
+<script type="application/json" id="gb-base-prices-{{ gb_id }}">
+  {
+    "4": {{ gb_base4.price | default: 0 }},
+    "5": {{ gb_base5.price | default: 0 }},
+    "6": {{ gb_base6.price | default: 0 }}
+  }
+</script>
+
+{%- if section.settings.dev_mode and section.settings.dev_sku_list != blank -%}
+<script type="application/json" id="gb-dev-skus-{{ gb_id }}">
+  {{ section.settings.dev_sku_list }}
+</script>
+{%- endif -%}
+
+{%- comment -%} ── HTML ─────────────────────────────────────────────────── {%- endcomment -%}
+
+<div class="garage-builder" id="gb-{{ gb_id }}" data-section-id="{{ gb_id }}">
+
+  <div class="gb-shell">
+
+    {%- comment -%} Header {%- endcomment -%}
+    <header class="gb-header">
+      <div>
+        <span class="gb-eyebrow">Acme Storage</span>
+        <h2 class="gb-title">{{ section.settings.title | default: 'Design Your Garage' }}</h2>
+      </div>
+      <div class="gb-header__meta">
+        <span class="gb-coord">Acme Modular Design</span>
+        <span class="gb-coord gb-coord--accent">LIVE</span>
+      </div>
+    </header>
+
+    {%- comment -%} ── LANDING VIEW ─────────────────────────────────────── {%- endcomment -%}
+    <div class="gb-landing" id="gb-landing-{{ gb_id }}">
+
+      <div class="gb-landing__hero">
+        {%- if section.settings.landing_image -%}
+          <img class="gb-landing__img"
+               src="{{ section.settings.landing_image | img_url: '800x600', crop: 'center' }}"
+               alt="{{ section.settings.title }}"
+               loading="lazy">
+        {%- else -%}
+          <div class="gb-landing__placeholder">
+            <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="60" width="40" height="80" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="55" y="40" width="40" height="100" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="100" y="60" width="40" height="80" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="10" y1="140" x2="190" y2="140" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div>
+        <p class="gb-landing__lede">{{ section.settings.title | default: 'Design Your Perfect Garage Storage' }}</p>
+        <p class="gb-landing__subtitle">{{ section.settings.subtitle | default: 'Choose a slot preset, then customise every component in 3D.' }}</p>
+
+        <div class="gb-presets" id="gb-presets-{{ gb_id }}">
+          {%- comment -%} Preset buttons rendered by JS (gb-main.js _renderPresetButtons) {%- endcomment -%}
+        </div>
+
+        <button class="gb-start-btn" id="gb-start-{{ gb_id }}" disabled>
+          <span>BUILD IN 3D</span>
+          <span class="gb-start-btn__arrow">→</span>
+        </button>
+      </div>
+
+    </div>{%- comment -%} /gb-landing {%- endcomment -%}
+
+    {%- comment -%} ── BUILDER VIEW ─────────────────────────────────────── {%- endcomment -%}
+    <div class="gb-builder" id="gb-builder-{{ gb_id }}" hidden>
+      <div class="gb-stage">
+
+        {%- comment -%} 3D Canvas column {%- endcomment -%}
+        <div class="gb-stage__canvas-wrap" id="gb-canvas-wrap-{{ gb_id }}">
+
+          <canvas class="gb-canvas" id="gb-canvas-{{ gb_id }}"></canvas>
+
+          {%- comment -%} Loading overlay {%- endcomment -%}
+          <div class="gb-loading" id="gb-loading-{{ gb_id }}">
+            <div class="gb-loading__bar"><span></span></div>
+            <p class="gb-loading__label">Loading 3D scene…</p>
+          </div>
+
+          {%- comment -%} Dimension chips (populated by JS) {%- endcomment -%}
+          <div class="gb-dimensions" id="gb-dims-{{ gb_id }}"></div>
+
+          {%- comment -%} Selection menu layer (Single / Set) {%- endcomment -%}
+          <div class="gb-menu-layer" id="gb-menu-layer-{{ gb_id }}" aria-hidden="true"></div>
+
+          {%- comment -%} Detail wheel layer {%- endcomment -%}
+          <div class="gb-wheel-layer" id="gb-wheel-layer-{{ gb_id }}" aria-hidden="true"></div>
+
+          {%- comment -%} HUD controls {%- endcomment -%}
+          <div class="gb-hud">
+            <button class="gb-hud-btn" data-action="reset-cam" title="Reset camera" aria-label="Reset camera">⊙</button>
+            <button class="gb-hud-btn" data-action="zoom-fit"  title="Fit to screen" aria-label="Fit to screen">⊠</button>
+          </div>
+
+        </div>{%- comment -%} /canvas-wrap {%- endcomment -%}
+
+        {%- comment -%} Sidebar {%- endcomment -%}
+        <aside class="gb-sidebar">
+          <div class="gb-sidebar__head">
+            <span class="gb-sidebar__tag" id="gb-sidebar-tag-{{ gb_id }}">COMPONENTS</span>
+            <button class="gb-sidebar__back" id="gb-back-{{ gb_id }}" aria-label="Back to preset selection">← BACK</button>
+          </div>
+
+          <div class="gb-node-list" id="gb-node-list-{{ gb_id }}"></div>
+
+          <div class="gb-totals" id="gb-totals-{{ gb_id }}"></div>
+
+          <button class="gb-checkout-btn" id="gb-checkout-{{ gb_id }}" disabled>
+            <span>ADD TO CART</span>
+            <span class="gb-checkout-btn__arrow">→</span>
+          </button>
+        </aside>
+
+      </div>
+    </div>{%- comment -%} /gb-builder {%- endcomment -%}
+
+  </div>{%- comment -%} /gb-shell {%- endcomment -%}
+
+  {%- comment -%} Toast notification host {%- endcomment -%}
+  <div class="gb-toast-host" id="gb-toast-{{ gb_id }}"></div>
+
+</div>{%- comment -%} /garage-builder {%- endcomment -%}
+
+{%- comment -%} ── Scripts ──────────────────────────────────────────────── {%- endcomment -%}
+
+<script>
+  window.GB_DISCOUNT = {{ section.settings.discount_percentage | default: 0 }};
+</script>
+
+<script src="{{ 'gb-shopify-data.js' | asset_url }}" defer></script>
+<script src="{{ 'gb-calculator.js'    | asset_url }}" defer></script>
+<script src="{{ 'gb-ui-menu.js'       | asset_url }}" defer></script>
+<script src="{{ 'gb-ui-wheel.js'      | asset_url }}" defer></script>
+<script src="{{ 'gb-scene.js'         | asset_url }}" defer></script>
+<script src="{{ 'gb-main.js'          | asset_url }}" defer></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new window.GB.Main({{ gb_id | json }});
+  });
+</script>
+
+{% schema %}
+{
+  "name": "3D Garage Builder",
+  "tag": "section",
+  "class": "gb-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section heading",
+      "default": "Design Your Garage Storage"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Configure your perfect storage system in 3D"
+    },
+    {
+      "type": "image_picker",
+      "id": "landing_image",
+      "label": "Landing hero image"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection_handle",
+      "label": "Storage products collection",
+      "info": "Products in this collection are mapped to .glb assets by SKU."
+    },
+    {
+      "type": "header",
+      "content": "Base prices (one per preset)"
+    },
+    {
+      "type": "product",
+      "id": "base_product_4",
+      "label": "4-slot base product",
+      "info": "The price of this product becomes the starting price for the 4-slot preset."
+    },
+    {
+      "type": "product",
+      "id": "base_product_5",
+      "label": "5-slot base product"
+    },
+    {
+      "type": "product",
+      "id": "base_product_6",
+      "label": "6-slot base product"
+    },
+    {
+      "type": "header",
+      "content": "Pricing"
+    },
+    {
+      "type": "range",
+      "id": "discount_percentage",
+      "label": "Bundle discount %",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "info": "Applied to the price difference from component swaps, not to the preset base price."
+    },
+    {
+      "type": "header",
+      "content": "Dev mode"
+    },
+    {
+      "type": "checkbox",
+      "id": "dev_mode",
+      "label": "Enable dev mode",
+      "default": false,
+      "info": "Injects placeholder products for SKUs not in the collection."
+    },
+    {
+      "type": "textarea",
+      "id": "dev_sku_list",
+      "label": "Dev SKU overrides (JSON)",
+      "default": "{}",
+      "info": "Format: { \"SKU\": { \"title\": \"Name\", \"price\": 10000 } }"
+    }
+  ],
+  "presets": [
+    {
+      "name": "3D Garage Builder"
+    }
+  ]
+}
+{% endschema %}

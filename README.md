@@ -19,6 +19,7 @@ Each project follows the same documentation layout:
 | [Azure HomeLab - 02 AKS, CI/CD and Monitoring](azure-homelab/02-aks-cicd-monitor/) | Containers, DevOps | Terraform, AKS, ACR, GitHub Actions, Log Analytics | [README](azure-homelab/02-aks-cicd-monitor/README.md) - [Troubleshooting log](azure-homelab/02-aks-cicd-monitor/TROUBLESHOOTING.md) |
 | [Shipping Mark Generator](work-samples/shipping-mark-generator/) | Business automation | Python, Tkinter, openpyxl, PyInstaller | [README](work-samples/shipping-mark-generator/README.md) - [Engineering log](work-samples/shipping-mark-generator/ENGINEERING-LOG.md) |
 | [AI Phone-Receptionist Pipeline](work-samples/ai-receptionist-pipeline/) | Applied AI | Python, Whisper, LLM via OpenRouter, 3CX | [README](work-samples/ai-receptionist-pipeline/README.md) - [Analysis log](work-samples/ai-receptionist-pipeline/ANALYSIS.md) |
+| [Shopify 3D Garage Builder](work-samples/shopify-3d-garage-builder/) | E-commerce front end | Shopify Liquid, JavaScript, Three.js | [README](work-samples/shopify-3d-garage-builder/README.md) - [Engineering log](work-samples/shopify-3d-garage-builder/ENGINEERING-LOG.md) |
 
 ### Azure HomeLab
 
@@ -30,7 +31,7 @@ separate commit, and written up with its root cause.
 
 ### Work Samples
 
-Two internal tools built at Excel Intelligent Pty Ltd, published as sanitised copies.
+Three projects built at Excel Intelligent Pty Ltd, published as sanitised copies.
 Company names, supplier names, internal endpoints, credentials and all customer data have
 been removed or replaced with placeholders.
 
@@ -48,7 +49,8 @@ portfolio/
 |   `-- .github/workflows/           CI/CD pipeline used by project 02
 `-- work-samples/
     |-- shipping-mark-generator/     Python desktop application
-    `-- ai-receptionist-pipeline/    Python data pipeline and AI agent prototypes
+    |-- ai-receptionist-pipeline/    Python data pipeline and AI agent prototypes
+    `-- shopify-3d-garage-builder/   Shopify section with a Three.js configurator
 ```
 
 The `azure-homelab` folder was imported from the standalone repository

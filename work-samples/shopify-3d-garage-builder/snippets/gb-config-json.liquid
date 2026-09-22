@@ -1,0 +1,110 @@
+{% comment %}
+  gb-config-json.liquid
+  Per-node fields:
+    node_id      — unique string, stable across swaps
+    x            — column index (int) or [int,int] for multi-column span
+    y            — tier level (1 = floor)
+    sku          — default SKU
+    setWith      — empty = standalone Single; same value on multiple nodes = linked
+                   group. All nodes sharing this value are removed together on a
+                   Set swap.
+    setAvailable — key into sets{} that lists available Set swap options.
+                   Empty = no Set option shown. Same key can be shared by all
+                   nodes in a group so they all show the same alternatives.
+    fix          — true = locked, cannot be swapped
+
+  single_swaps: { sku → [alternative skus] }   first entry = source sku (revert)
+  sets: { setAvailable_key → [ { set_id, label, sku, nodes[] } ] }
+{% endcomment %}
+{
+  "tier_height_m": 0.85,
+  "column_width_m": 0.9,
+
+  "presets": {
+    "4": {
+      "nodes": [
+        { "node_id": "S1,1",   "x": 1,     "y": 1, "sku": "MOD-2DSC-GS",  "setWith": "",          "setAvailable": "Y-Slot",          "fix": false },
+        { "node_id": "S2,1",   "x": 2,     "y": 1, "sku": "MOD-3DBC-GS",  "setWith": "S2,1|S3,1", "setAvailable": "X-Slot2", "fix": false },
+        { "node_id": "S3,1",   "x": 3,     "y": 1, "sku": "MOD-2DBC-GS",  "setWith": "S2,1|S3,1", "setAvailable": "X-Slot2", "fix": false },
+        { "node_id": "S2+3,2", "x": [2,3], "y": 2, "sku": "MOD-1365WS-GS",  "setWith": "",          "setAvailable": "",          "fix": false, "height_override_m": 0 },
+        { "node_id": "S2,3",   "x": 2,     "y": 3, "sku": "MOD-MBHP-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S3,3",   "x": 3,     "y": 3, "sku": "MOD-MBHP-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S2,4",   "x": 2,     "y": 4, "sku": "MOD-2DSWC-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S3,4",   "x": 3,     "y": 4, "sku": "MOD-2DSWC-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S4,1",   "x": 4,     "y": 1, "sku": "MOD-2DSC-GS",  "setWith": "",          "setAvailable": "Y-Slot",          "fix": false }
+      ]
+    },
+
+    "5": {
+      "nodes": [
+        { "node_id": "S1,1",   "x": 1,     "y": 1, "sku": "MOD-2DSC-GS",  "setWith": "",          "setAvailable": "g-1",          "fix": false },
+        { "node_id": "S2,1",   "x": 2,     "y": 1, "sku": "MOD-2DBC-GS",  "setWith": "S2,1|S3,1|S4,1", "setAvailable": "col2-sets", "fix": false },
+        { "node_id": "S3,1",   "x": 3,     "y": 1, "sku": "MOD-2DBC-GS",  "setWith": "S2,1|S3,1|S4,1", "setAvailable": "col2-sets", "fix": false },
+        { "node_id": "S2+3+4,2", "x": [2,3,4], "y": 2, "sku": "MOD-2005WS-GS",  "setWith": "",          "setAvailable": "",          "fix": true, "height_override_m": 0 },
+        { "node_id": "S2,3",   "x": 2,     "y": 3, "sku": "MOD-MBHP-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S3,3",   "x": 3,     "y": 3, "sku": "MOD-MBHP-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S2,4",   "x": 2,     "y": 4, "sku": "MOD-2DSWC-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S3,4",   "x": 3,     "y": 4, "sku": "MOD-2DSWC-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S4,1",   "x": 4,     "y": 1, "sku": "MOD-2DBC-GS",  "setWith": "S2,1|S3,1|S4,1", "setAvailable": "col2-sets", "fix": false },
+        { "node_id": "S4,3",   "x": 4,     "y": 3, "sku": "MOD-MBHP-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S4,4",   "x": 4,     "y": 4, "sku": "MOD-2DSWC-GS",  "setWith": "", "setAvailable": "", "fix": true },
+        { "node_id": "S5,1",   "x": 5,     "y": 1, "sku": "MOD-2DSC-GS",  "setWith": "",          "setAvailable": "",          "fix": false }
+      ]
+    },
+
+    "6": {
+      "nodes": [
+        { "node_id": "S1,1",   "x": 1,     "y": 1, "sku": "MOD-2DBC-GS",  "setWith": "",          "setAvailable": "",           "fix": false },
+        { "node_id": "S2,1",   "x": 2,     "y": 1, "sku": "MOD-2DBC-GS",  "setWith": "S2,1|S2,2", "setAvailable": "",  "fix": false },
+        { "node_id": "S2,2",   "x": 2,     "y": 2, "sku": "MOD-2DSC-GS",  "setWith": "S2,1|S2,2", "setAvailable": "",  "fix": false },
+        { "node_id": "S3+4,1", "x": [3,4], "y": 1, "sku": "MOD-3DBC-GS",  "setWith": "S3+4,1",    "setAvailable": "","fix": false },
+        { "node_id": "S3+4,2", "x": [3,4], "y": 2, "sku": "MOD-SBX2-GS",  "setWith": "S3+4,1",          "setAvailable": "",           "fix": true  },
+        { "node_id": "S5,1",   "x": 5,     "y": 1, "sku": "MOD-2DSWC-GS", "setWith": "",          "setAvailable": "",           "fix": false },
+        { "node_id": "S6,1",   "x": 6,     "y": 1, "sku": "MOD-2DBC-GS",  "setWith": "",          "setAvailable": "",           "fix": false }
+      ]
+    }
+  },
+
+  "single_swaps": {
+    "MOD-2DBC-GS":      ["MOD-2DBC-GS", "MOD-3DBC-GS"],
+    "MOD-2DSC-GS":      [],
+    "MOD-2DSWC-GS":     [],
+    "MOD-2DTC-GS":      [],
+    "MOD-SBX2-GS":      [],
+    "MOD-3DBC-GS":      ["MOD-3DBC-GS", "MOD-2DBC-GS"  ],
+    "MOD-1365WS-GS":    ["MOD-1365WS-GS",    "MOD-1365SWS-GS"                     ],
+    "MOD-1365SWS-GS":   ["MOD-1365SWS-GS",   "MOD-1365WS-GS"                     ],
+    "MOD-2005WS-GS":    ["MOD-2005WS-GS",    "MOD-2005SWS-GS"                    ],
+    "MOD-2005SWS-GS":   ["MOD-2005SWS-GS",   "MOD-2005WS-GS"                     ]
+  },
+
+  "sets": {
+    "col2-sets": [
+      { "group_id": "stacked",     "label": "1",       "skus": ["MOD-2DBC-GS",      "MOD-2DBC-GS" , "MOD-2DBC-GS"] },
+      { "group_id": "workstation", "label": "2",       "skus": ["MOD-2DBC-GS",    "MOD-3DBC-GS" , "MOD-2DBC-GS"         ] },
+      { "group_id": "swing",       "label": "3",     "skus": ["MOD-3DBC-GS",    "MOD-2DBC-GS"  , "MOD-2DBC-GS"         ] }
+    ],
+
+    "span34-sets": [
+      { "group_id": "wide-cab",    "label": "Wide Cabinet",      "skus": ["MOD-3DBC-GS"                    ] },
+      { "group_id": "two-singles", "label": "2× Singles",        "skus": ["MOD-2DBC-GS",      "MOD-2DSWC-GS"] },
+      { "group_id": "large-ws",    "label": "Large Workstation", "skus": ["MOD-2005WS-GS"                  ] }
+    ],
+    "g-1": [
+      { "group_id": "stacked",     "label": "1",       "skus": ["MOD-2DBC-GS",      "MOD-2DBC-GS" ] },
+      { "group_id": "workstation", "label": "2",       "skus": ["MOD-2DBC-GS",    "MOD-3DBC-GS"          ] },
+      { "group_id": "swing",       "label": "3",     "skus": ["MOD-3DBC-GS",    "MOD-2DBC-GS"           ] }
+    ],
+    "Y-Slot":[
+      {"group_id": "2-Drawer", "label": "2 Drawer",       "skus": ["MOD-2DBC-GS",      "MOD-2DTC-GS" ] },
+      {"group_id": "3-Drawer", "label": "3 Drawer",       "skus": ["MOD-3DBC-GS",      "MOD-2DTC-GS" ] },
+      {"group_id": "Tall", "label": "Tall",       "skus": ["MOD-2DSC-GS" ] }
+    ],
+    "X-Slot2":[
+      {"group_id": "2-2-Drawer", "label": "2-2 Drawer",       "skus": ["MOD-2DBC-GS",      "MOD-2DBC-GS" ] },
+      {"group_id": "3-3 Drawer", "label": "3-3 Drawer",       "skus": ["MOD-3DBC-GS",      "MOD-3DBC-GS" ] },
+      {"group_id": "2-3 Drawer", "label": "2-3 Drawer",       "skus": ["MOD-2DBC-GS",      "MOD-3DBC-GS" ] },
+      {"group_id": "3-2 Drawer", "label": "3-2 Drawer",       "skus": ["MOD-3DBC-GS",      "MOD-2DBC-GS" ] }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{% comment %}
+  gb-products-json.liquid
+  Renders products from the configured collection as a JSON array.
+  Usage: {% render 'gb-products-json', collection_handle: section.settings.collection_handle %}
+  Each product uses its first variant's SKU; only products with a non-blank SKU are included.
+{% endcomment %}
+{% assign gb_coll = collections[collection_handle] %}
+[{% if gb_coll %}{% for p in gb_coll.products %}{% assign v = p.variants.first %}{% if v.sku != blank %}{% unless forloop.first %},{% endunless %}{"sku":{{ v.sku | json }},"title":{{ p.title | json }},"price":{{ v.price }},"price_formatted":{{ v.price | money | json }},"variant_id":{{ v.id }},"handle":{{ p.handle | json }},"featured_image":{% if p.featured_image %}{{ p.featured_image | img_url: '240x240', crop: 'center' | json }}{% else %}null{% endif %},"available":{{ p.available }}}{% endif %}{% endfor %}{% endif %}]
