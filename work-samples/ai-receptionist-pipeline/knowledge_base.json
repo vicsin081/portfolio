@@ -1,0 +1,1003 @@
+{
+  "intents": [
+    {
+      "intent": "Product Info & Availability",
+      "total_calls": 318,
+      "automation_distribution": {
+        "ai_needs_system_lookup": 195,
+        "must_transfer_human": 64,
+        "ai_can_answer": 59
+      },
+      "route_distribution": {
+        "none": 181,
+        "sales": 49,
+        "specific_person": 40,
+        "warehouse_stock": 34,
+        "support_aftersales": 7,
+        "manager": 7
+      },
+      "question_categories": [
+        {
+          "category": "Product Specifications & Features",
+          "standard_solution": "Provide detailed product specifications, features, materials, and any relevant technical information. If the information is not readily available, transfer to a product specialist.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "product dimensions",
+            "product specifications",
+            "product information",
+            "product features",
+            "product details",
+            "product feature explanation",
+            "wind rating",
+            "product configuration",
+            "product suitability",
+            "product comparison",
+            "engineer certificate for shed",
+            "product material quality",
+            "product color options",
+            "product configuration details"
+          ]
+        },
+        {
+          "category": "Product Availability & Stock",
+          "standard_solution": "Check current stock levels for the requested product, including specific colors or variants. Provide lead times for out-of-stock items or special orders. Offer alternative products if the requested item is unavailable.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "warehouse_stock",
+          "example_question_types": [
+            "stock availability",
+            "product availability",
+            "product dimensions & stock availability",
+            "stock availability and lead time",
+            "pickup lead time",
+            "product dimensions & availability",
+            "stock availability, delivery cost quote",
+            "stock availability, delivery cost quote, packaging details",
+            "product dimensions, price, delivery cost quote, stock availability"
+          ]
+        },
+        {
+          "category": "Customization & Modification",
+          "standard_solution": "Inform the customer about available customization options, lead times, and potential costs. If customisation is not offered, clearly state this. For complex requests, transfer to a specialist.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "custom product dimensions",
+            "product customization",
+            "custom product availability",
+            "product modification"
+          ]
+        },
+        {
+          "category": "Assembly & Installation",
+          "standard_solution": "Provide assembly instructions, information on installation services (if available), and associated costs or regional restrictions. For specific order-related instructions, locate the order first.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "assembly instructions",
+            "installation availability",
+            "assembly service availability and cost",
+            "product features, installation, delivery cost quote",
+            "product specifications and installation"
+          ]
+        },
+        {
+          "category": "Parts & Identification",
+          "standard_solution": "Assist with identifying products or specific parts. For replacement parts, check availability and process for ordering. If identification is difficult, request SKU or images.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "product identification",
+            "replacement parts",
+            "replacement parts availability",
+            "parts availability and quote",
+            "product variant identification"
+          ]
+        },
+        {
+          "category": "Pricing & Delivery Costs",
+          "standard_solution": "Provide product pricing and generate delivery cost quotes based on the customer's postcode. Inform about any regional delivery restrictions or depot locations.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery cost quote",
+            "product dimensions and price",
+            "product dimensions, delivery cost quote, depot address, product material quality",
+            "stockist location"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Quotes & Pricing",
+      "total_calls": 253,
+      "automation_distribution": {
+        "ai_needs_system_lookup": 195,
+        "must_transfer_human": 49,
+        "ai_can_answer": 9
+      },
+      "route_distribution": {
+        "none": 154,
+        "sales": 57,
+        "manager": 19,
+        "specific_person": 13,
+        "delivery_freight": 8,
+        "warehouse_stock": 2
+      },
+      "question_categories": [
+        {
+          "category": "Product & Delivery Quotes",
+          "standard_solution": "To provide an accurate quote for products and delivery, we need the specific product details (SKU, size, color), the quantity desired, and the full delivery postcode. This information allows us to calculate both product pricing and associated shipping costs. For complex or custom requests, a sales representative will need to generate a detailed quote.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "delivery cost quote",
+            "product price quote",
+            "product quote",
+            "product price",
+            "carport quote",
+            "product pricing",
+            "shipping cost quote",
+            "product price and delivery cost",
+            "price quote",
+            "carport pricing",
+            "custom shed quote",
+            "shed quote",
+            "product quote and delivery cost",
+            "product pricing and delivery cost",
+            "quote for specific product",
+            "quote for multiple items",
+            "quote for custom order",
+            "quote request",
+            "freight quote",
+            "product quote and delivery/installation cost",
+            "quote for parts"
+          ]
+        },
+        {
+          "category": "Quote Management & Clarification",
+          "standard_solution": "If you have an existing quote, please provide the quote number or the email address used to receive it. We can then clarify details, resend the quote, or assist with modifications. For follow-ups, we can check the status of your quote.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "quote follow-up",
+            "quote clarification",
+            "quote not received",
+            "quote modification"
+          ]
+        },
+        {
+          "category": "Installation & Assembly Quotes",
+          "standard_solution": "For quotes on installation or assembly services, we need details about the product, your location, and any specific site conditions. This often requires a review by our warehouse or installation team. We will collect your details and arrange for a specialist to contact you with a quote.",
+          "automation": "must_transfer_human",
+          "route_to": "warehouse_stock",
+          "example_question_types": [
+            "assembly cost quote",
+            "installation cost quote",
+            "shed installation quote",
+            "installation quote"
+          ]
+        },
+        {
+          "category": "Pricing Negotiation & Discounts",
+          "standard_solution": "For price negotiation, bulk discounts, or price match requests, these inquiries are handled by our sales management team. Please provide details of your request, and we will connect you with the appropriate person.",
+          "automation": "must_transfer_human",
+          "route_to": "sales",
+          "example_question_types": [
+            "price negotiation",
+            "product price negotiation",
+            "new customer discount",
+            "price match request",
+            "sales pricing"
+          ]
+        },
+        {
+          "category": "Pricing Discrepancies & Policy",
+          "standard_solution": "If you've noticed a price discrepancy or have questions about our pricing policies (e.g., sale end dates, holding stock), please provide the details. We will investigate the discrepancy or clarify our policies. For complex issues, a manager may need to review.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "manager",
+          "example_question_types": [
+            "price discrepancy",
+            "pricing misquote",
+            "future pricing and shipping cost",
+            "sale end date",
+            "holding stock policy"
+          ]
+        },
+        {
+          "category": "Trade & Wholesale Pricing",
+          "standard_solution": "For trade accounts or wholesale pricing inquiries, please provide your business details. We will connect you with our sales team who can assist with applications and provide specific wholesale pricing information.",
+          "automation": "must_transfer_human",
+          "route_to": "sales",
+          "example_question_types": [
+            "trade account application"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Delivery & Pickup",
+      "total_calls": 291,
+      "automation_distribution": {
+        "ai_needs_system_lookup": 176,
+        "must_transfer_human": 76,
+        "ai_can_answer": 39
+      },
+      "route_distribution": {
+        "none": 169,
+        "delivery_freight": 73,
+        "warehouse_stock": 28,
+        "manager": 7,
+        "specific_person": 6,
+        "accounts_invoice": 4,
+        "sales": 3,
+        "support_aftersales": 1
+      },
+      "question_categories": [
+        {
+          "category": "Delivery Cost & Options",
+          "standard_solution": "Provide delivery cost quotes based on postcode and product dimensions. Explain available delivery options and associated costs. For complex scenarios or negotiations, escalate to a specialist.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery cost quote",
+            "delivery options and cost",
+            "delivery cost negotiation",
+            "delivery quote"
+          ]
+        },
+        {
+          "category": "Delivery Scheduling & Changes",
+          "standard_solution": "Confirm and schedule delivery dates and times. Process requests for changes to delivery dates, times, or addresses. Provide delivery notifications and instructions. For complex rescheduling or redirection, escalate to the delivery team.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery scheduling",
+            "delivery date confirmation",
+            "delivery date change",
+            "delivery notification",
+            "delivery address confirmation",
+            "delivery time confirmation",
+            "delivery reschedule",
+            "delivery date",
+            "delivery arrangement",
+            "delivery time change",
+            "delivery date and assistance",
+            "delivery date scheduling",
+            "delivery redirection",
+            "delivery instructions",
+            "delivery hold request"
+          ]
+        },
+        {
+          "category": "Delivery Status & Issues",
+          "standard_solution": "Provide updates on delivery status. For issues like delays or missing items, escalate to the delivery team for investigation and resolution.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery confirmation",
+            "delivery status"
+          ]
+        },
+        {
+          "category": "Pickup Scheduling & Changes",
+          "standard_solution": "Schedule and confirm pickup appointments. Process requests for changes to pickup dates or times. Provide reminders and instructions for pickup.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "warehouse_stock",
+          "example_question_types": [
+            "pickup scheduling",
+            "pickup time change",
+            "pickup date change",
+            "pickup time adjustment",
+            "change pickup date",
+            "late pickup"
+          ]
+        },
+        {
+          "category": "Pickup Information & Confirmation",
+          "standard_solution": "Confirm pickup details, including availability, location, and instructions. Provide necessary information for the person picking up the order.",
+          "automation": "ai_can_answer",
+          "route_to": "none",
+          "example_question_types": [
+            "pickup availability",
+            "pickup confirmation",
+            "pickup arrangements",
+            "pickup time confirmation",
+            "pickup instructions",
+            "pickup reminder",
+            "pickup time and address",
+            "pickup notification",
+            "pickup address",
+            "pickup time",
+            "pickup location"
+          ]
+        },
+        {
+          "category": "Product Information for Delivery/Pickup",
+          "standard_solution": "Provide product dimensions and packaging details relevant to delivery or pickup. For specific packaging requests, forward to the warehouse.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "warehouse_stock",
+          "example_question_types": [
+            "product dimensions",
+            "packaging request"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Order Placement",
+      "total_calls": 162,
+      "automation_distribution": {
+        "ai_needs_system_lookup": 126,
+        "must_transfer_human": 31,
+        "ai_can_answer": 5
+      },
+      "route_distribution": {
+        "none": 116,
+        "sales": 28,
+        "specific_person": 8,
+        "manager": 5,
+        "warehouse_stock": 2,
+        "accounts_invoice": 2,
+        "delivery_freight": 1
+      },
+      "question_categories": [
+        {
+          "category": "Order Initiation & Placement",
+          "standard_solution": "Assist the customer in placing a new order, including confirming product details, stock availability, and initial pricing. If a specific sales representative is already assisting the customer, transfer the call to them.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "order placement",
+            "place order",
+            "complete purchase",
+            "order placement confirmation",
+            "website order issue",
+            "product dimensions and price",
+            "product specifications and pricing"
+          ]
+        },
+        {
+          "category": "Order Modification & Additions",
+          "standard_solution": "Retrieve the existing order details and process requests to add items, modify quantities, or change product specifications. Confirm any impact on pricing or delivery and process additional payments if necessary.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "add item to existing order",
+            "add items to existing order",
+            "order modification",
+            "order modification and payment",
+            "add item to order",
+            "add to existing order",
+            "product customization"
+          ]
+        },
+        {
+          "category": "Payment & Invoicing",
+          "standard_solution": "Process deposit or full payments, provide payment links, confirm payment methods, and send invoices. If complex payment arrangements are required (e.g., split payments, Afterpay), transfer to accounts.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "accounts_invoice",
+          "example_question_types": [
+            "deposit payment",
+            "payment method",
+            "payment processing",
+            "order confirmation and payment",
+            "order deposit payment",
+            "promotion eligibility"
+          ]
+        },
+        {
+          "category": "Stock & Product Information",
+          "standard_solution": "Provide real-time stock availability, product dimensions, specifications, and confirm assembly instructions. If detailed product information or custom configurations are needed, transfer to sales.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "warehouse_stock",
+          "example_question_types": [
+            "stock availability",
+            "assembly instructions",
+            "product photo request"
+          ]
+        },
+        {
+          "category": "Delivery & Freight",
+          "standard_solution": "Calculate delivery costs, provide delivery options, and confirm delivery company names. For complex freight quotes or specific delivery arrangements, transfer to the freight team.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery cost quote",
+            "delivery options",
+            "delivery company name"
+          ]
+        },
+        {
+          "category": "Order Confirmation & Status",
+          "standard_solution": "Confirm order details, send order confirmations, and provide updates on order status. If a customer is awaiting a specific confirmation or has a unique request, escalate to a manager.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "order confirmation"
+          ]
+        },
+        {
+          "category": "Agent & Contact Information",
+          "standard_solution": "Provide agent contact details or direct the customer to the appropriate contact person or department for their specific query.",
+          "automation": "ai_can_answer",
+          "route_to": "none",
+          "example_question_types": [
+            "agent contact details"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Order Status & Modification",
+      "total_calls": 179,
+      "automation_distribution": {
+        "ai_needs_system_lookup": 139,
+        "must_transfer_human": 38,
+        "ai_can_answer": 2
+      },
+      "route_distribution": {
+        "none": 91,
+        "sales": 29,
+        "specific_person": 23,
+        "support_aftersales": 16,
+        "warehouse_stock": 14,
+        "delivery_freight": 4,
+        "accounts_invoice": 2
+      },
+      "question_categories": [
+        {
+          "category": "Order Status Inquiry",
+          "standard_solution": "To provide an accurate order status, I need your order number or the name and phone number associated with the order. Once I have this, I can look up the current status, estimated dispatch date, and any available tracking information.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "none",
+          "example_question_types": [
+            "order status",
+            "order dispatch status",
+            "order status and delivery details",
+            "order status and invoice",
+            "order status and payment",
+            "order confirmation",
+            "order tracking",
+            "order delay",
+            "order lead time",
+            "payment confirmation and delivery timeframe",
+            "payment confirmation"
+          ]
+        },
+        {
+          "category": "Order Modification Request",
+          "standard_solution": "To modify an existing order, please provide your order number and the specific changes you wish to make (e.g., item change, quantity, delivery address, color). I will check if the modification is possible based on the order's current stage and stock availability. Some changes may require a new invoice or a transfer to a sales representative.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "order modification",
+            "order status and modification",
+            "add item to order",
+            "invoice details modification",
+            "order modification - pickup date",
+            "order modification - colour change",
+            "confirm replacement panel delivery address",
+            "add item to existing order",
+            "add contact details to order",
+            "order modification clarification"
+          ]
+        },
+        {
+          "category": "Order Cancellation Request",
+          "standard_solution": "To cancel an order, please provide your order number. Depending on the order's status, cancellation may be possible. For orders already processed or dispatched, cancellation fees or return procedures may apply. I can initiate the cancellation process or provide instructions on how to proceed.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "order cancellation",
+            "order cancellation and refund",
+            "order cancellation policy",
+            "order cancellation and modification"
+          ]
+        },
+        {
+          "category": "Delivery & Pickup Scheduling",
+          "standard_solution": "For delivery or pickup scheduling, please provide your order number. I can confirm dispatch dates, estimated delivery timeframes, and available pickup options. For specific date changes or urgent requests, I may need to check with the warehouse or delivery team and will get back to you.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery date",
+            "delivery status",
+            "delivery date confirmation",
+            "delivery eta",
+            "order pickup date",
+            "dispatch date",
+            "order status and pickup scheduling",
+            "delivery company details",
+            "delivery date modification",
+            "delivery date and payment confirmation",
+            "delivery date and service level"
+          ]
+        },
+        {
+          "category": "Invoice & Payment Inquiry",
+          "standard_solution": "For invoice or payment-related questions, please provide your order number. I can resend invoices, confirm payment receipt, or clarify outstanding balances. For complex billing issues or refunds, I may need to transfer you to our accounts department.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "accounts_invoice",
+          "example_question_types": [
+            "order confirmation email",
+            "invoice request"
+          ]
+        },
+        {
+          "category": "Product & Stock Availability",
+          "standard_solution": "To check product or stock availability, please provide the item's name or SKU. I can check current stock levels and estimated restock dates. For specific inquiries about pre-orders or alternative options, I may need to consult with our warehouse team.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "warehouse_stock",
+          "example_question_types": [
+            "stock availability"
+          ]
+        },
+        {
+          "category": "Replacement Parts & Support",
+          "standard_solution": "For inquiries regarding replacement parts or post-sales support, please provide your order number and details of the issue. I will log your request and forward it to our support team who will contact you with an update or resolution.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "replacement part status"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Payments & Refunds",
+      "total_calls": 100,
+      "automation_distribution": {
+        "ai_needs_system_lookup": 52,
+        "must_transfer_human": 37,
+        "ai_can_answer": 11
+      },
+      "route_distribution": {
+        "none": 58,
+        "accounts_invoice": 36,
+        "manager": 3,
+        "specific_person": 2,
+        "support_aftersales": 1
+      },
+      "question_categories": [
+        {
+          "category": "Make a Payment",
+          "standard_solution": "Provide available payment options (bank transfer, credit card, payment link, cash on pickup). Explain any surcharges. Offer to send an invoice or payment link. If taking payment over the phone, ensure compliance with security protocols and amount limits.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "none",
+          "example_question_types": [
+            "take payment",
+            "pay invoice",
+            "make a payment",
+            "pay outstanding balance",
+            "make payment",
+            "final payment",
+            "deposit payment",
+            "credit card payment",
+            "payment for existing order",
+            "payment for delivery",
+            "payment balance",
+            "invoice payment",
+            "balance payment",
+            "finalise payment",
+            "payment process"
+          ]
+        },
+        {
+          "category": "Payment Issues & Declines",
+          "standard_solution": "For declined payments, advise the customer to try another method or contact their bank. If a payment link was not received, resend it. For credit card issues, suggest trying again or using an alternative payment method. If a refund has already been issued, consult with accounts.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "accounts_invoice",
+          "example_question_types": [
+            "credit card declined",
+            "payment declined",
+            "payment link not received"
+          ]
+        },
+        {
+          "category": "Payment Confirmation & Receipts",
+          "standard_solution": "Confirm payment status by checking the system. If payment is confirmed, advise on next steps (e.g., dispatch). For bank transfers, request remittance advice. Resend receipts to the customer's preferred email or phone number.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "accounts_invoice",
+          "example_question_types": [
+            "payment confirmation",
+            "payment processing",
+            "payment notification",
+            "receipt request",
+            "receipt not received"
+          ]
+        },
+        {
+          "category": "Refund Status & Processing",
+          "standard_solution": "Check the status of the refund in the system. Advise the customer on the expected timeframe for the refund to appear in their account (e.g., 3-5 business days). If further investigation is needed, transfer to accounts or offer to follow up.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "accounts_invoice",
+          "example_question_types": [
+            "refund status",
+            "cancel order and refund",
+            "shipping refund"
+          ]
+        },
+        {
+          "category": "Invoice & Payment Details",
+          "standard_solution": "Provide invoice details, including outstanding balance and payment options. Resend invoices as requested. For discrepancies or special requests (e.g., payment plans, due date extensions, discounts), note the request and escalate to the appropriate department.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "accounts_invoice",
+          "example_question_types": [
+            "payment method",
+            "invoice request",
+            "send invoice",
+            "payment due date extension",
+            "payment arrangement",
+            "apply discount",
+            "invoice discrepancy",
+            "payment plan",
+            "deposit amount",
+            "payment options"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Returns & Exchanges",
+      "total_calls": 8,
+      "automation_distribution": {
+        "must_transfer_human": 6,
+        "ai_can_answer": 1,
+        "ai_needs_system_lookup": 1
+      },
+      "route_distribution": {
+        "support_aftersales": 4,
+        "specific_person": 2,
+        "warehouse_stock": 1,
+        "sales": 1
+      },
+      "question_categories": [
+        {
+          "category": "Policy Inquiry",
+          "standard_solution": "Our return and exchange policy allows for returns within the applicable period of purchase for most items, provided they are in their original condition and packaging. Some exclusions apply, such as custom orders or items marked as final sale. Refunds are typically processed within a few business days to the original payment method. Exchanges are subject to stock availability and may incur a restocking fee. Please refer to our full policy on our website for detailed information.",
+          "automation": "ai_can_answer",
+          "route_to": "none",
+          "example_question_types": [
+            "refund policy",
+            "exchange or refund policy"
+          ]
+        },
+        {
+          "category": "Order Cancellation",
+          "standard_solution": "To cancel an order, please email our support team at [support email address] with your order number and reason for cancellation. Please note that a non-refundable deposit may apply, and cancellation fees may be incurred depending on the order status and product type. We will review your request and advise on the next steps.",
+          "automation": "ai_can_answer",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "order cancellation"
+          ]
+        },
+        {
+          "category": "Damaged/Faulty Item",
+          "standard_solution": "If you have received a damaged or faulty item, please email photos of the damage/fault along with your order number to our support team at [support email address] within the applicable period of delivery. We will assess the issue and arrange for a replacement, repair, or refund as appropriate. Please retain all original packaging.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "damaged item replacement",
+            "exchange damaged item"
+          ]
+        },
+        {
+          "category": "Exchange Request",
+          "standard_solution": "To request an exchange, please contact our support team at [support email address] with your order number and details of the item you wish to exchange, along with the item you would like instead. Exchanges are subject to stock availability and may incur a restocking fee. We will advise on the process and any applicable fees.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "exchange product"
+          ]
+        },
+        {
+          "category": "Return/Repair Status",
+          "standard_solution": "To check the status of your return or repair, please provide your return/repair reference number or original order number. We will then look up the current status and estimated timeline for resolution. Please allow a few business days for updates after an item has been received by our warehouse.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "warehouse_stock",
+          "example_question_types": [
+            "return status and repair timeline"
+          ]
+        },
+        {
+          "category": "Fee Dispute",
+          "standard_solution": "If you wish to dispute a cancellation fee, restocking fee, or any other charge, please email a detailed explanation of your dispute along with your order number to our sales team at [sales email address]. A sales representative will review your case and contact you to discuss further.",
+          "automation": "must_transfer_human",
+          "route_to": "sales",
+          "example_question_types": [
+            "cancellation fee dispute"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Complaint / Issue",
+      "total_calls": 39,
+      "automation_distribution": {
+        "must_transfer_human": 36,
+        "ai_needs_system_lookup": 2,
+        "ai_can_answer": 1
+      },
+      "route_distribution": {
+        "support_aftersales": 28,
+        "none": 7,
+        "specific_person": 2,
+        "sales": 1,
+        "delivery_freight": 1
+      },
+      "question_categories": [
+        {
+          "category": "Product Quality/Condition",
+          "standard_solution": "Please provide photos/videos of the issue (damage, defect, incorrect item, missing parts) to our support email address. Our team will review and advise on the next steps, which may include replacement, repair, or further investigation.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "missing parts",
+            "faulty product",
+            "damaged product",
+            "product defect",
+            "damaged goods",
+            "incorrect product part",
+            "product assembly issue",
+            "missing parts/instructions",
+            "damaged item replacement",
+            "incorrect parts received",
+            "missing parts / damaged goods",
+            "incorrect product delivered",
+            "faulty part",
+            "incorrect product received",
+            "incorrect product dimensions",
+            "assembly issue",
+            "wrong part received"
+          ]
+        },
+        {
+          "category": "Delivery/Order Discrepancy",
+          "standard_solution": "We will investigate the delivery discrepancy (wrong recipient, unsolicited delivery) with our logistics and warehouse teams. We will contact you with an update and resolution plan.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery to wrong recipient",
+            "unsolicited delivery"
+          ]
+        },
+        {
+          "category": "Pricing/Billing Issue",
+          "standard_solution": "We will review your order and account details to investigate the pricing or delivery cost discrepancy. A relevant team member will contact you to discuss and resolve the issue.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "accounts_invoice",
+          "example_question_types": [
+            "pricing discrepancy",
+            "delivery cost dispute"
+          ]
+        },
+        {
+          "category": "Customer Service Feedback",
+          "standard_solution": "Thank you for your feedback. We take all customer service complaints seriously. Your comments will be forwarded to our management team for review and appropriate action.",
+          "automation": "ai_can_answer",
+          "route_to": "manager",
+          "example_question_types": [
+            "customer service complaint",
+            "unsolicited call complaint",
+            "customer feedback",
+            "complaint about support process"
+          ]
+        },
+        {
+          "category": "Communication/Response Delay",
+          "standard_solution": "We apologise for the delay in response. We will check our records for your previous communications (emails, calls) and ensure a team member contacts you as soon as possible to address your query.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "unanswered email",
+            "unreturned calls"
+          ]
+        },
+        {
+          "category": "Delivery Delay/Compensation",
+          "standard_solution": "For delivery delays, please contact the freight company directly using the tracking information provided. For compensation inquiries related to delays, please submit a formal request to our support team for review.",
+          "automation": "ai_can_answer",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery delay compensation"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Callback & Specific Contact",
+      "total_calls": 335,
+      "automation_distribution": {
+        "must_transfer_human": 312,
+        "ai_needs_system_lookup": 12,
+        "ai_can_answer": 11
+      },
+      "route_distribution": {
+        "specific_person": 187,
+        "none": 111,
+        "manager": 18,
+        "sales": 17,
+        "support_aftersales": 1,
+        "warehouse_stock": 1
+      },
+      "question_categories": [
+        {
+          "category": "General Callback Request",
+          "standard_solution": "Confirm the caller's name and phone number. Ask for a brief reason for the callback to ensure the correct person or department can assist. Arrange for a suitable colleague to return the call.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "callback request",
+            "callback",
+            "callback time",
+            "callback reason",
+            "return call"
+          ]
+        },
+        {
+          "category": "Specific Person Contact/Callback",
+          "standard_solution": "Attempt to transfer the call directly to the requested person. If unavailable, confirm their availability and offer to arrange a callback or take a message. If contact details are requested, provide only publicly available information (e.g., general email address for a department) or offer to forward the request.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "specific_person",
+          "example_question_types": [
+            "specific contact",
+            "speak to specific person",
+            "callback to specific person",
+            "specific person callback",
+            "callback for specific person",
+            "specific contact details"
+          ]
+        },
+        {
+          "category": "Missed Call Follow-up",
+          "standard_solution": "Identify the colleague who made the missed call and the reason for it. Attempt to connect the caller to that colleague or arrange a callback. If the issue is resolved, confirm with the caller.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "specific_person",
+          "example_question_types": [
+            "missed call callback",
+            "missed call",
+            "missed call return",
+            "missed call follow-up"
+          ]
+        },
+        {
+          "category": "Product/Service Information Callback",
+          "standard_solution": "Gather details about the product or service in question. Offer to arrange a callback from a specialist (e.g., sales, technical support) who can provide the requested information or assistance.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "assembly instructions",
+            "product information",
+            "product dimensions",
+            "product modification",
+            "product compatibility",
+            "product availability",
+            "special offer end date",
+            "product options",
+            "stock availability",
+            "specific product enquiry",
+            "carport dimensions and pricing",
+            "specific product query",
+            "replacement parts"
+          ]
+        },
+        {
+          "category": "Financial/Logistical Callback",
+          "standard_solution": "Gather necessary details (e.g., order number, invoice number, delivery address). Offer to arrange a callback from the relevant department (e.g., accounts, delivery, warehouse) after they have investigated the query.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "delivery_freight",
+          "example_question_types": [
+            "delivery cost quote",
+            "stock availability, delivery cost quote, discount application",
+            "cash discount"
+          ]
+        },
+        {
+          "category": "Email/Communication Follow-up",
+          "standard_solution": "Confirm the caller's email address and the subject of the email. Offer to resend the email or check its status. If a specific action is required (e.g., signing an agreement), confirm the next steps.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "support_aftersales",
+          "example_question_types": [
+            "confirm email receipt",
+            "resend email",
+            "check email status",
+            "email not received"
+          ]
+        },
+        {
+          "category": "Manager Request",
+          "standard_solution": "Ascertain the reason for wanting to speak with a manager. If appropriate, attempt to transfer the call. Otherwise, offer to take a message and arrange a callback from a manager.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "manager",
+          "example_question_types": [
+            "speak to manager"
+          ]
+        }
+      ]
+    },
+    {
+      "intent": "Showroom & Viewing",
+      "total_calls": 80,
+      "automation_distribution": {
+        "ai_can_answer": 51,
+        "must_transfer_human": 19,
+        "ai_needs_system_lookup": 10
+      },
+      "route_distribution": {
+        "none": 66,
+        "sales": 7,
+        "warehouse_stock": 4,
+        "specific_person": 2,
+        "manager": 1
+      },
+      "question_categories": [
+        {
+          "category": "Showroom Location & General Information",
+          "standard_solution": "Our showroom is located at 1 Example Street, Example Suburb VIC 3000. We do not have showrooms in other cities. Our facility is primarily a warehouse and office, but we welcome visitors to view products. We can provide directions if needed.",
+          "automation": "ai_can_answer",
+          "route_to": "none",
+          "example_question_types": [
+            "showroom viewing",
+            "showroom location",
+            "showroom locations",
+            "showroom address",
+            "showroom address confirmation",
+            "showroom directions",
+            "showroom viewing policy"
+          ]
+        },
+        {
+          "category": "Showroom Hours & Availability",
+          "standard_solution": "Our showroom is open Monday to Friday from 9:00am to 5:00pm. We are also open on Saturdays from 10:00am to 1:00pm. Please note any public holiday hours may vary, check our website or call for specific dates.",
+          "automation": "ai_can_answer",
+          "route_to": "none",
+          "example_question_types": [
+            "showroom viewing hours",
+            "showroom hours",
+            "showroom opening hours",
+            "showroom hours and location"
+          ]
+        },
+        {
+          "category": "Specific Item Viewing & Display",
+          "standard_solution": "To confirm if a specific item is currently on display in our showroom, we need to check our system. Please provide the product name or SKU. If it's not on display, we may be able to arrange a viewing in the warehouse.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "showroom viewing availability",
+            "showroom viewing of specific item",
+            "showroom display availability",
+            "showroom stock availability"
+          ]
+        },
+        {
+          "category": "Showroom Visit Booking & Confirmation",
+          "standard_solution": "To book or confirm a showroom visit, please provide your preferred date and time, along with the items you are interested in viewing. We will confirm your appointment and notify the warehouse if specific items need to be prepared.",
+          "automation": "ai_needs_system_lookup",
+          "route_to": "sales",
+          "example_question_types": [
+            "showroom viewing time",
+            "showroom visit confirmation",
+            "confirm showroom visit",
+            "showroom viewing appointment",
+            "showroom viewing arrangement",
+            "showroom visit booking",
+            "reschedule showroom visit"
+          ]
+        },
+        {
+          "category": "Showroom Visit Follow-up & Other",
+          "standard_solution": "For follow-up on a previous showroom visit or other specific inquiries not covered, please provide details and we will connect you with the appropriate team member.",
+          "automation": "must_transfer_human",
+          "route_to": "sales",
+          "example_question_types": [
+            "showroom visit follow-up",
+            "showroom viewing & sale price",
+            "showroom visit"
+          ]
+        }
+      ]
+    }
+  ]
+}

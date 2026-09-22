@@ -1,0 +1,1299 @@
+{
+  "raw_labels": [
+    {
+      "call_id": "2025",
+      "intent": "delivery status inquiry",
+      "desc": "The customer is calling to inquire about the delivery status of a recently purchased cupboard."
+    },
+    {
+      "call_id": "2249",
+      "intent": "arrange pickup",
+      "desc": "The customer is arranging a time to pick up their order."
+    },
+    {
+      "call_id": "3404",
+      "intent": "return a call",
+      "desc": "The customer is returning a call and trying to find the voicemail."
+    },
+    {
+      "call_id": "801",
+      "intent": "place an order",
+      "desc": "The customer is calling to place an order for a Hampton's open library bookcase with a ladder."
+    },
+    {
+      "call_id": "2702",
+      "intent": "product inquiry",
+      "desc": "The customer is calling to inquire about a specific modular buffet cabinet, its availability, pricing, and delivery options."
+    },
+    {
+      "call_id": "2667",
+      "intent": "pickup order",
+      "desc": "The customer is calling to pick up an order they placed."
+    },
+    {
+      "call_id": "645",
+      "intent": "return dispenser",
+      "desc": "The customer wants to arrange the return of a grip film dispenser that was on loan and has not been returned."
+    },
+    {
+      "call_id": "4060",
+      "intent": "place order",
+      "desc": "The customer is calling to place an order for a product and arrange payment and pickup."
+    },
+    {
+      "call_id": "286",
+      "intent": "place order",
+      "desc": "The customer wants to place an order for products."
+    },
+    {
+      "call_id": "3575",
+      "intent": "return a call",
+      "desc": "The customer is returning a call from the company regarding an item inquiry."
+    },
+    {
+      "call_id": "3310",
+      "intent": "make payment",
+      "desc": "The customer is providing their credit card details to make a deposit payment for an order."
+    },
+    {
+      "call_id": "2878",
+      "intent": "inquire about showroom/product viewing",
+      "desc": "The customer is calling to ask if there is a showroom to view products before purchasing, specifically a Hamptons coffee table."
+    },
+    {
+      "call_id": "3367",
+      "intent": "check stock availability",
+      "desc": "The customer is calling to inquire about the stock availability of a specific chair model that is showing as sold out online."
+    },
+    {
+      "call_id": "2637",
+      "intent": "change invoice details",
+      "desc": "The customer wants to change the name and email address on an invoice."
+    },
+    {
+      "call_id": "2400",
+      "intent": "missing carport sheets",
+      "desc": "The customer is calling about missing roof sheets for a carport they purchased and needs to send photos to resolve the issue."
+    },
+    {
+      "call_id": "14003",
+      "intent": "clarify order details",
+      "desc": "The customer is calling to clarify the specifications for side panels on an order."
+    },
+    {
+      "call_id": "1074",
+      "intent": "inquire about shade",
+      "desc": "The customer is calling to inquire about a shade they received a missed call about, specifically regarding its size, availability, and price."
+    },
+    {
+      "call_id": "163",
+      "intent": "inquire about carport extension",
+      "desc": "The customer is calling to inquire about purchasing an extension for a carport they previously bought from Example Wholesale Co.."
+    },
+    {
+      "call_id": "387",
+      "intent": "delivery date confirmation",
+      "desc": "The customer is calling to confirm the delivery date for their order."
+    },
+    {
+      "call_id": "2054",
+      "intent": "return a call",
+      "desc": "The customer is returning a call from the wholesaler regarding a previous inquiry about a double carport."
+    },
+    {
+      "call_id": "111",
+      "intent": "payment issue",
+      "desc": "The customer's credit card was declined and they need to make alternative payment arrangements."
+    },
+    {
+      "call_id": "2154",
+      "intent": "schedule order pickup",
+      "desc": "The customer is calling to schedule a pickup time for their order."
+    },
+    {
+      "call_id": "4141",
+      "intent": "check order status",
+      "desc": "The customer is calling to check the status of an existing order."
+    },
+    {
+      "call_id": "2046",
+      "intent": "follow up missing items",
+      "desc": "The customer is calling to follow up on a previously reported issue regarding missing items from an order."
+    },
+    {
+      "call_id": "2731",
+      "intent": "follow up on quote",
+      "desc": "The customer is following up on a quote for a Hampton's buffet."
+    },
+    {
+      "call_id": "487",
+      "intent": "arrange callback",
+      "desc": "The customer is arranging a callback with a staff member."
+    },
+    {
+      "call_id": "2007",
+      "intent": "product availability and pricing",
+      "desc": "The customer is calling to inquire about the availability, pricing, and potential discounts for several furniture items, specifically an extendable dining table, chairs, a concealed table with a mirror, and a TV table."
+    },
+    {
+      "call_id": "3866",
+      "intent": "cancel order",
+      "desc": "The customer wants to cancel a recently placed order for a shed."
+    },
+    {
+      "call_id": "537",
+      "intent": "product inquiry",
+      "desc": "The customer is calling to inquire about the availability of a specific shed size."
+    },
+    {
+      "call_id": "3114",
+      "intent": "product information",
+      "desc": "The customer is requesting information about a sunroom kit, specifically inquiring about available sizes."
+    },
+    {
+      "call_id": "1104",
+      "intent": "follow up on quote",
+      "desc": "The customer is calling back to follow up on a previous quote and inform the business that they are still considering the purchase."
+    },
+    {
+      "call_id": "3747",
+      "intent": "return a call",
+      "desc": "The customer is returning a call from the company."
+    },
+    {
+      "call_id": "2650",
+      "intent": "check product availability",
+      "desc": "The customer wants to know if a specific coffee table is on display at the warehouse."
+    },
+    {
+      "call_id": "3785",
+      "intent": "delivery cost inquiry",
+      "desc": "The customer is inquiring about the cost of delivery for furniture to their location in Tamworth, NSW."
+    },
+    {
+      "call_id": "779",
+      "intent": "speak to specific person",
+      "desc": "The customer wants to speak with a colleague."
+    },
+    {
+      "call_id": "3144",
+      "intent": "shed inquiry",
+      "desc": "The customer is inquiring about a shed, specifically pricing for installation and flooring options."
+    },
+    {
+      "call_id": "3493",
+      "intent": "arrange pickup",
+      "desc": "The customer is calling to confirm the pickup location and time for an item they purchased."
+    },
+    {
+      "call_id": "416",
+      "intent": "cancel shed order",
+      "desc": "The customer is calling to cancel their shed order as they have found a different size shed elsewhere."
+    },
+    {
+      "call_id": "128",
+      "intent": "confirm order details",
+      "desc": "The customer is calling to confirm the price and delivery options for a special order of a Rivergum green carport."
+    },
+    {
+      "call_id": "4142",
+      "intent": "unknown",
+      "desc": "The customer's reason for calling cannot be determined from this short transcript."
+    },
+    {
+      "call_id": "1698",
+      "intent": "product exchange",
+      "desc": "The customer wants to exchange a product they purchased for a different color."
+    },
+    {
+      "call_id": "4007",
+      "intent": "inquire about shed purchase",
+      "desc": "The customer is calling to inquire about purchasing a specific shed model, including details about its specifications, delivery, and pricing."
+    },
+    {
+      "call_id": "3597",
+      "intent": "product inquiry",
+      "desc": "The customer is calling to inquire about the specifications and pricing of a shed and a carport they saw online."
+    },
+    {
+      "call_id": "3091",
+      "intent": "request product information",
+      "desc": "The customer is calling to follow up on an email with product information (price, availability, pictures) for the Ultra 2 storage cabinet."
+    },
+    {
+      "call_id": "3885",
+      "intent": "arrange delivery",
+      "desc": "The customer is calling back to arrange the delivery of an armchair and confirm availability to assist the driver."
+    },
+    {
+      "call_id": "2086",
+      "intent": "return a missed call",
+      "desc": "The customer is returning a missed call from the company."
+    },
+    {
+      "call_id": "3651",
+      "intent": "cancel order",
+      "desc": "The customer wants to cancel an order and is being advised on the process."
+    },
+    {
+      "call_id": "1044",
+      "intent": "speak to specific person",
+      "desc": "The customer wants to speak to a colleague."
+    },
+    {
+      "call_id": "2276",
+      "intent": "change delivery method",
+      "desc": "The customer wants to change their order from pickup to delivery and inquire about delivery options and times."
+    },
+    {
+      "call_id": "192",
+      "intent": "cancel order",
+      "desc": "The customer wants to cancel an order they mistakenly placed and receive a refund."
+    },
+    {
+      "call_id": "3718",
+      "intent": "confirm delivery date",
+      "desc": "The customer is confirming if their dining table can be delivered on Friday."
+    },
+    {
+      "call_id": "2616",
+      "intent": "request refund",
+      "desc": "The customer wants a refund for a replacement unit that has not arrived after two and a half months."
+    },
+    {
+      "call_id": "3081",
+      "intent": "greeting",
+      "desc": "The customer is greeting the agent."
+    },
+    {
+      "call_id": "3361",
+      "intent": "shipping quote",
+      "desc": "The customer is calling to get a shipping quote for a specific product to their location, as the website's estimated shipping options are not clear for their address."
+    },
+    {
+      "call_id": "2456",
+      "intent": "carport inquiry",
+      "desc": "The customer is calling to inquire about purchasing a carport for their caravan."
+    },
+    {
+      "call_id": "651",
+      "intent": "check product price",
+      "desc": "The customer is asking for the price of a specific shed model and size."
+    },
+    {
+      "call_id": "707",
+      "intent": "speak to specific person",
+      "desc": "The customer wants to speak with a colleague."
+    },
+    {
+      "call_id": "2810",
+      "intent": "product inquiry",
+      "desc": "The customer is asking about product details, availability, and delivery for a specific sideboard."
+    },
+    {
+      "call_id": "961",
+      "intent": "confirm pickup details",
+      "desc": "The customer is calling to confirm the pickup time and payment details for an order."
+    },
+    {
+      "call_id": "993",
+      "intent": "product inquiry",
+      "desc": "The customer is calling to inquire about the length of a PVC blind advertised on eBay."
+    },
+    {
+      "call_id": "377",
+      "intent": "delivery quote",
+      "desc": "The customer is calling to get a delivery quote for a furniture item."
+    },
+    {
+      "call_id": "2501",
+      "intent": "request discount",
+      "desc": "The customer is asking if they can get a discount for paying with cash."
+    },
+    {
+      "call_id": "3450",
+      "intent": "delivery status inquiry",
+      "desc": "The customer is calling to inquire about the status of their furniture order and express concern about the delivery timeline."
+    },
+    {
+      "call_id": "929",
+      "intent": "confirm stock and delivery",
+      "desc": "The customer is calling to confirm the availability of a product and its delivery details before placing an order."
+    },
+    {
+      "call_id": "3740",
+      "intent": "unknown",
+      "desc": "The customer has not stated their reason for calling yet."
+    },
+    {
+      "call_id": "4031",
+      "intent": "delivery quote",
+      "desc": "The customer is calling to get a delivery quote for their order."
+    },
+    {
+      "call_id": "3999",
+      "intent": "place order",
+      "desc": "The customer is calling to place an order for a cabinet and make a payment."
+    },
+    {
+      "call_id": "1055",
+      "intent": "cancel order",
+      "desc": "The customer is calling to cancel an order they placed a few days ago."
+    },
+    {
+      "call_id": "2688",
+      "intent": "inquire about shed delivery",
+      "desc": "The customer is inquiring about the cost of delivery for a garden shed to their location."
+    },
+    {
+      "call_id": "481",
+      "intent": "purchase tarp material",
+      "desc": "The customer is calling to inquire about purchasing tarp material to cover a leaky cabin."
+    },
+    {
+      "call_id": "2371",
+      "intent": "check order status",
+      "desc": "The customer is calling to check the status of an online order and confirm payment details."
+    },
+    {
+      "call_id": "3452",
+      "intent": "shed installation quote",
+      "desc": "The customer is calling to inquire about a quote for shed installation."
+    },
+    {
+      "call_id": "527",
+      "intent": "delivery time enquiry",
+      "desc": "The customer is calling to find out the delivery time for their order and if it can be changed."
+    },
+    {
+      "call_id": "969",
+      "intent": "get quote for bookcases",
+      "desc": "The customer is calling to get a quote for two bookcases and the best delivery price."
+    },
+    {
+      "call_id": "81",
+      "intent": "return missed call",
+      "desc": "The customer is returning a missed call from the wholesaler."
+    },
+    {
+      "call_id": "42",
+      "intent": "inquire product availability",
+      "desc": "The customer is calling to inquire about the availability of power-racking support bars they saw advertised on eBay."
+    },
+    {
+      "call_id": "3356",
+      "intent": "order status update",
+      "desc": "The customer is calling to receive an update on their order."
+    },
+    {
+      "call_id": "4000",
+      "intent": "check order status",
+      "desc": "The customer is calling to check the status of a furniture order placed by her partner and inquire about swapping items or delivery options."
+    },
+    {
+      "call_id": "3295",
+      "intent": "delivery hold",
+      "desc": "The customer is calling to put a hold on their delivery because they will be away for three weeks."
+    },
+    {
+      "call_id": "2437",
+      "intent": "arrange pickup",
+      "desc": "The customer is calling to confirm and arrange the pickup of two shed kits tomorrow morning."
+    },
+    {
+      "call_id": "956",
+      "intent": "product inquiry",
+      "desc": "The customer is calling to inquire about a specific product, its pricing, potential discounts, and delivery options."
+    },
+    {
+      "call_id": "3580",
+      "intent": "request callback",
+      "desc": "The customer is requesting a callback from their sales representative."
+    },
+    {
+      "call_id": "238",
+      "intent": "pay extra freight",
+      "desc": "The customer is calling to pay an extra freight charge."
+    },
+    {
+      "call_id": "2636",
+      "intent": "unclear",
+      "desc": "The customer's intent is unclear due to the brevity of the transcript."
+    },
+    {
+      "call_id": "280",
+      "intent": "inquire about shed dimensions",
+      "desc": "The customer is calling to inquire about the dimensions and availability of a small shed."
+    },
+    {
+      "call_id": "2170",
+      "intent": "cancel order",
+      "desc": "The customer wants to cancel an order for two sheds because the sizes were incorrect."
+    },
+    {
+      "call_id": "2727",
+      "intent": "delivery options",
+      "desc": "The customer is asking if they can pay a deposit and pick up an item in September."
+    },
+    {
+      "call_id": "3398",
+      "intent": "order update",
+      "desc": "The customer is calling to inquire about the status of their order for chairs."
+    },
+    {
+      "call_id": "576",
+      "intent": "request product information",
+      "desc": "The customer is requesting an email with details on two carport options, including pricing, delivery costs, package dimensions, and certification information, to help them decide which to purchase."
+    },
+    {
+      "call_id": "2475",
+      "intent": "check order status",
+      "desc": "The customer is calling to check the status of an existing order."
+    },
+    {
+      "call_id": "2304",
+      "intent": "product availability and pickup",
+      "desc": "The customer wants to confirm if a specific product is in stock and available for immediate pickup at the warehouse."
+    },
+    {
+      "call_id": "3011",
+      "intent": "check carport price",
+      "desc": "The customer is calling to inquire about the price of a carport, including delivery options and total cost."
+    },
+    {
+      "call_id": "3508",
+      "intent": "collect order",
+      "desc": "The customer is calling to collect an order they placed online."
+    },
+    {
+      "call_id": "2422",
+      "intent": "pay for delivery",
+      "desc": "The customer wants to pay for their delivery but needs to call back later."
+    },
+    {
+      "call_id": "374",
+      "intent": "unclear",
+      "desc": "The customer's intent is unclear due to the brevity of the transcript."
+    },
+    {
+      "call_id": "2607",
+      "intent": "return missed call",
+      "desc": "The customer is returning a missed call from the company."
+    },
+    {
+      "call_id": "3876",
+      "intent": "modify existing order",
+      "desc": "The customer is calling to make several changes and additions to an existing order, including product cancellations, new product additions, and quantity adjustments."
+    },
+    {
+      "call_id": "1963",
+      "intent": "product availability",
+      "desc": "The customer is calling to inquire about the availability of a specific bedside table."
+    },
+    {
+      "call_id": "2002",
+      "intent": "confirm payment received",
+      "desc": "The customer is calling to confirm if their electronic transfer payment has been received and processed."
+    },
+    {
+      "call_id": "3851",
+      "intent": "inquire about shed purchase",
+      "desc": "The customer is calling to inquire about purchasing a specific shed they saw online, including delivery costs, engineering certificates, and availability."
+    },
+    {
+      "call_id": "22",
+      "intent": "stock check",
+      "desc": "The customer is calling to check the stock availability of a specific furniture item."
+    },
+    {
+      "call_id": "366",
+      "intent": "order status inquiry",
+      "desc": "The customer is calling to follow up on the status of an order placed in April that was expected in mid-May."
+    },
+    {
+      "call_id": "3399",
+      "intent": "product availability",
+      "desc": "The customer is calling to inquire about the availability of a specific product, PR Beam 2743."
+    },
+    {
+      "call_id": "940",
+      "intent": "replacement parts inquiry",
+      "desc": "The customer is asking if the company sells replacement panels for a hothouse."
+    },
+    {
+      "call_id": "529",
+      "intent": "make payment",
+      "desc": "The customer wants to make a payment over the phone."
+    },
+    {
+      "call_id": "172",
+      "intent": "shed enquiry",
+      "desc": "The customer is calling to enquire about a shed."
+    },
+    {
+      "call_id": "2691",
+      "intent": "pay deposit",
+      "desc": "The customer wants to pay a deposit for an order over the phone."
+    },
+    {
+      "call_id": "15673",
+      "intent": "get quote for order",
+      "desc": "The customer is calling to get a quote for an order, including delivery options and pricing for additional accessories."
+    },
+    {
+      "call_id": "2601",
+      "intent": "product inquiry",
+      "desc": "The customer is inquiring about a matching dining bench for a table they are interested in, and also asking about lead times and storage options."
+    },
+    {
+      "call_id": "2417",
+      "intent": "product inquiry",
+      "desc": "The customer is asking about the price of an auger."
+    },
+    {
+      "call_id": "2485",
+      "intent": "shipping quote",
+      "desc": "The customer is calling to inquire about shipping costs for a large shed to Brisbane."
+    },
+    {
+      "call_id": "305",
+      "intent": "request quote adjustment",
+      "desc": "The customer is calling to discuss a previously provided quote, specifically regarding pricing for a larger carport and options for adjustable posts due to a sloped driveway."
+    },
+    {
+      "call_id": "2871",
+      "intent": "delivery status inquiry",
+      "desc": "The customer is calling to inquire about the delivery status of their order, specifically a table."
+    },
+    {
+      "call_id": "2115",
+      "intent": "schedule delivery and installation",
+      "desc": "The customer is calling to schedule the delivery and installation of a shed, inquiring about available days and times, and clarifying installation requirements."
+    },
+    {
+      "call_id": "2913",
+      "intent": "product inquiry",
+      "desc": "The customer is calling to inquire about custom garage sizes, door placement, delivery/pickup options, stock availability, and color choices for a garage."
+    },
+    {
+      "call_id": "2993",
+      "intent": "order enquiry",
+      "desc": "The customer is calling to inquire about an order they have placed a deposit on."
+    },
+    {
+      "call_id": "3662",
+      "intent": "make final payment",
+      "desc": "The customer is calling to pay the remaining balance on an order so it can be shipped."
+    },
+    {
+      "call_id": "2676",
+      "intent": "place order",
+      "desc": "The customer wants to place an order for a shelving unit."
+    },
+    {
+      "call_id": "100",
+      "intent": "enquire about product",
+      "desc": "The customer is calling to enquire about a garden shed."
+    },
+    {
+      "call_id": "395",
+      "intent": "place new order",
+      "desc": "The customer is calling to place a new order for a cream-colored shed and arrange for pickup."
+    },
+    {
+      "call_id": "534",
+      "intent": "product inquiry",
+      "desc": "The customer is inquiring about the availability of a 4-meter wide carport and its specifications."
+    },
+    {
+      "call_id": "998",
+      "intent": "change pickup date",
+      "desc": "The customer is calling to change their garden shed pickup date from Monday to Saturday."
+    },
+    {
+      "call_id": "1019",
+      "intent": "general enquiry",
+      "desc": "The customer is making a general enquiry."
+    },
+    {
+      "call_id": "378",
+      "intent": "place order",
+      "desc": "The customer is calling to purchase a table and provide their payment and delivery details."
+    },
+    {
+      "call_id": "2173",
+      "intent": "order pickup",
+      "desc": "The customer is picking up an order and is being directed to the correct gate."
+    },
+    {
+      "call_id": "3371",
+      "intent": "product inquiry",
+      "desc": "The customer is calling to inquire about the availability, specifications, and pricing of a 3x6 shed, including delivery options and engineering certificates."
+    },
+    {
+      "call_id": "2986",
+      "intent": "delivery cost inquiry",
+      "desc": "The customer is calling to inquire about the delivery cost of an item to their location in Sydney."
+    },
+    {
+      "call_id": "482",
+      "intent": "arrange pickup",
+      "desc": "The customer is calling to arrange the pickup of their carport."
+    },
+    {
+      "call_id": "382",
+      "intent": "place order",
+      "desc": "The customer is calling to place an order for a glass cabinet and arrange payment and delivery details."
+    },
+    {
+      "call_id": "3527",
+      "intent": "confirm pickup details",
+      "desc": "The customer is confirming the pickup details for their order."
+    },
+    {
+      "call_id": "703",
+      "intent": "shed enquiry",
+      "desc": "The customer is calling to inquire about purchasing and installing a shed, providing specific dimensions."
+    },
+    {
+      "call_id": "3024",
+      "intent": "shed inquiry",
+      "desc": "The customer is calling to inquire about the availability, pricing, and delivery of a shed."
+    },
+    {
+      "call_id": "3728",
+      "intent": "confirm delivery details",
+      "desc": "The customer is calling to confirm the delivery date and time for an order, and to ensure their payment has been received."
+    },
+    {
+      "call_id": "1092",
+      "intent": "order parts",
+      "desc": "The customer is calling to order two back bracings for a storage kit they previously purchased."
+    },
+    {
+      "call_id": "94",
+      "intent": "confirm order details",
+      "desc": "The customer is calling to confirm the details of their order, including payment and pickup."
+    },
+    {
+      "call_id": "3590",
+      "intent": "inquire about showroom visit",
+      "desc": "The customer wants to visit the showroom to see a specific bookshelf model in person."
+    },
+    {
+      "call_id": "3312",
+      "intent": "check opening hours",
+      "desc": "The customer is calling to confirm the opening hours for Saturday."
+    },
+    {
+      "call_id": "833",
+      "intent": "inquire about buffet availability",
+      "desc": "The customer is calling to inquire about the availability and cost of a specific buffet, and is open to alternatives if their preferred item is out of stock."
+    },
+    {
+      "call_id": "341",
+      "intent": "shipping quote",
+      "desc": "The customer is calling to get a shipping quote for two bedside tables to New South Wales."
+    },
+    {
+      "call_id": "2241",
+      "intent": "reschedule pickup",
+      "desc": "The customer is calling to reschedule the pickup of their furniture to a different day."
+    },
+    {
+      "call_id": "231",
+      "intent": "delivery cost clarification",
+      "desc": "The customer is calling to clarify an additional delivery charge to Kelso."
+    },
+    {
+      "call_id": "3796",
+      "intent": "purchase carport",
+      "desc": "The customer is calling to purchase a carport and is discussing details like pickup, payment, and additional sidewalls."
+    },
+    {
+      "call_id": "2267",
+      "intent": "follow up on inquiry",
+      "desc": "The customer is responding to a follow-up call about a garden shed inquiry."
+    },
+    {
+      "call_id": "3458",
+      "intent": "shed purchase inquiry",
+      "desc": "The customer is calling to confirm details and pricing for a shed they intend to purchase, including delivery options and structural information."
+    },
+    {
+      "call_id": "1766",
+      "intent": "arrange delivery/pickup",
+      "desc": "The customer is calling to arrange the pickup/delivery of a previously purchased item and inquire about storage options."
+    },
+    {
+      "call_id": "545",
+      "intent": "order status inquiry",
+      "desc": "The customer is calling to inquire about the status of their carport order."
+    },
+    {
+      "call_id": "248",
+      "intent": "arrange pickup",
+      "desc": "The customer is calling to arrange the pickup of an online order."
+    },
+    {
+      "call_id": "40",
+      "intent": "cancel order and refund",
+      "desc": "The customer wants to cancel an accidental online purchase and receive a refund."
+    },
+    {
+      "call_id": "3451",
+      "intent": "check product availability",
+      "desc": "The customer is calling to check the availability of a specific product (shade) and its delivery timeframe."
+    },
+    {
+      "call_id": "3924",
+      "intent": "delivery status inquiry",
+      "desc": "The customer is calling to inquire about the delivery time of their order, as they were expecting a notification from the driver that they have not received."
+    }
+  ],
+  "label_counts": [
+    [
+      "product inquiry",
+      11
+    ],
+    [
+      "place order",
+      6
+    ],
+    [
+      "arrange pickup",
+      5
+    ],
+    [
+      "cancel order",
+      5
+    ],
+    [
+      "delivery status inquiry",
+      4
+    ],
+    [
+      "return a call",
+      4
+    ],
+    [
+      "check order status",
+      4
+    ],
+    [
+      "speak to specific person",
+      3
+    ],
+    [
+      "shipping quote",
+      3
+    ],
+    [
+      "make payment",
+      2
+    ],
+    [
+      "follow up on quote",
+      2
+    ],
+    [
+      "check product availability",
+      2
+    ],
+    [
+      "delivery cost inquiry",
+      2
+    ],
+    [
+      "shed inquiry",
+      2
+    ],
+    [
+      "confirm order details",
+      2
+    ],
+    [
+      "unknown",
+      2
+    ],
+    [
+      "inquire about shed purchase",
+      2
+    ],
+    [
+      "request product information",
+      2
+    ],
+    [
+      "confirm pickup details",
+      2
+    ],
+    [
+      "delivery quote",
+      2
+    ],
+    [
+      "return missed call",
+      2
+    ],
+    [
+      "unclear",
+      2
+    ],
+    [
+      "product availability",
+      2
+    ],
+    [
+      "order status inquiry",
+      2
+    ],
+    [
+      "shed enquiry",
+      2
+    ],
+    [
+      "place an order",
+      1
+    ],
+    [
+      "pickup order",
+      1
+    ],
+    [
+      "return dispenser",
+      1
+    ],
+    [
+      "inquire about showroom/product viewing",
+      1
+    ],
+    [
+      "check stock availability",
+      1
+    ],
+    [
+      "change invoice details",
+      1
+    ],
+    [
+      "missing carport sheets",
+      1
+    ],
+    [
+      "clarify order details",
+      1
+    ],
+    [
+      "inquire about shade",
+      1
+    ],
+    [
+      "inquire about carport extension",
+      1
+    ],
+    [
+      "delivery date confirmation",
+      1
+    ],
+    [
+      "payment issue",
+      1
+    ],
+    [
+      "schedule order pickup",
+      1
+    ],
+    [
+      "follow up missing items",
+      1
+    ],
+    [
+      "arrange callback",
+      1
+    ],
+    [
+      "product availability and pricing",
+      1
+    ],
+    [
+      "product information",
+      1
+    ],
+    [
+      "cancel shed order",
+      1
+    ],
+    [
+      "product exchange",
+      1
+    ],
+    [
+      "arrange delivery",
+      1
+    ],
+    [
+      "return a missed call",
+      1
+    ],
+    [
+      "change delivery method",
+      1
+    ],
+    [
+      "confirm delivery date",
+      1
+    ],
+    [
+      "request refund",
+      1
+    ],
+    [
+      "greeting",
+      1
+    ],
+    [
+      "carport inquiry",
+      1
+    ],
+    [
+      "check product price",
+      1
+    ],
+    [
+      "request discount",
+      1
+    ],
+    [
+      "confirm stock and delivery",
+      1
+    ],
+    [
+      "inquire about shed delivery",
+      1
+    ],
+    [
+      "purchase tarp material",
+      1
+    ],
+    [
+      "shed installation quote",
+      1
+    ],
+    [
+      "delivery time enquiry",
+      1
+    ],
+    [
+      "get quote for bookcases",
+      1
+    ],
+    [
+      "inquire product availability",
+      1
+    ],
+    [
+      "order status update",
+      1
+    ],
+    [
+      "delivery hold",
+      1
+    ],
+    [
+      "request callback",
+      1
+    ],
+    [
+      "pay extra freight",
+      1
+    ],
+    [
+      "inquire about shed dimensions",
+      1
+    ],
+    [
+      "delivery options",
+      1
+    ],
+    [
+      "order update",
+      1
+    ],
+    [
+      "product availability and pickup",
+      1
+    ],
+    [
+      "check carport price",
+      1
+    ],
+    [
+      "collect order",
+      1
+    ],
+    [
+      "pay for delivery",
+      1
+    ],
+    [
+      "modify existing order",
+      1
+    ],
+    [
+      "confirm payment received",
+      1
+    ],
+    [
+      "stock check",
+      1
+    ],
+    [
+      "replacement parts inquiry",
+      1
+    ],
+    [
+      "pay deposit",
+      1
+    ],
+    [
+      "get quote for order",
+      1
+    ],
+    [
+      "request quote adjustment",
+      1
+    ],
+    [
+      "schedule delivery and installation",
+      1
+    ],
+    [
+      "order enquiry",
+      1
+    ],
+    [
+      "make final payment",
+      1
+    ],
+    [
+      "enquire about product",
+      1
+    ],
+    [
+      "place new order",
+      1
+    ],
+    [
+      "change pickup date",
+      1
+    ],
+    [
+      "general enquiry",
+      1
+    ],
+    [
+      "order pickup",
+      1
+    ],
+    [
+      "confirm delivery details",
+      1
+    ],
+    [
+      "order parts",
+      1
+    ],
+    [
+      "inquire about showroom visit",
+      1
+    ],
+    [
+      "check opening hours",
+      1
+    ],
+    [
+      "inquire about buffet availability",
+      1
+    ],
+    [
+      "reschedule pickup",
+      1
+    ],
+    [
+      "delivery cost clarification",
+      1
+    ],
+    [
+      "purchase carport",
+      1
+    ],
+    [
+      "follow up on inquiry",
+      1
+    ],
+    [
+      "shed purchase inquiry",
+      1
+    ],
+    [
+      "arrange delivery/pickup",
+      1
+    ],
+    [
+      "cancel order and refund",
+      1
+    ]
+  ],
+  "taxonomy": {
+    "categories": [
+      {
+        "name": "Order Placement",
+        "description": "Customers initiating a new purchase or adding items to an existing order.",
+        "covers": [
+          "place an order",
+          "place order",
+          "place new order",
+          "purchase tarp material",
+          "purchase carport",
+          "order parts"
+        ]
+      },
+      {
+        "name": "Order Status & Modification",
+        "description": "Customers inquiring about an existing order's status, making changes, or canceling it.",
+        "covers": [
+          "delivery status inquiry",
+          "check order status",
+          "order status update",
+          "order status inquiry",
+          "order enquiry",
+          "order update",
+          "confirm order details",
+          "clarify order details",
+          "modify existing order",
+          "cancel order",
+          "cancel shed order",
+          "cancel order and refund",
+          "change invoice details",
+          "follow up missing items",
+          "missing carport sheets"
+        ]
+      },
+      {
+        "name": "Product Information & Availability",
+        "description": "Customers seeking details about products, their features, or stock levels.",
+        "covers": [
+          "product inquiry",
+          "product information",
+          "request product information",
+          "check product availability",
+          "product availability and pricing",
+          "product availability",
+          "inquire product availability",
+          "stock check",
+          "shed inquiry",
+          "inquire about shed purchase",
+          "carport inquiry",
+          "inquire about shade",
+          "inquire about carport extension",
+          "shed enquiry",
+          "inquire about shed dimensions",
+          "replacement parts inquiry",
+          "enquire about product",
+          "inquire about buffet availability"
+        ]
+      },
+      {
+        "name": "Delivery & Pickup Arrangements",
+        "description": "Customers arranging, confirming, or inquiring about delivery or pickup of their orders.",
+        "covers": [
+          "arrange pickup",
+          "pickup order",
+          "schedule order pickup",
+          "arrange delivery",
+          "confirm delivery date",
+          "confirm pickup details",
+          "change delivery method",
+          "delivery hold",
+          "collect order",
+          "schedule delivery and installation",
+          "change pickup date",
+          "confirm delivery details",
+          "arrange delivery/pickup"
+        ]
+      },
+      {
+        "name": "Quotes & Pricing",
+        "description": "Customers requesting price estimates for products, shipping, or services.",
+        "covers": [
+          "delivery cost inquiry",
+          "shipping quote",
+          "delivery quote",
+          "check product price",
+          "get quote for bookcases",
+          "check carport price",
+          "shed installation quote",
+          "request discount",
+          "get quote for order",
+          "request quote adjustment",
+          "delivery cost clarification",
+          "follow up on quote"
+        ]
+      },
+      {
+        "name": "Payments & Refunds",
+        "description": "Customers making payments, resolving payment issues, or requesting refunds.",
+        "covers": [
+          "make payment",
+          "payment issue",
+          "request refund",
+          "pay extra freight",
+          "confirm payment received",
+          "pay deposit",
+          "make final payment",
+          "pay for delivery"
+        ]
+      },
+      {
+        "name": "Callback & Specific Contact",
+        "description": "Customers requesting a return call or to speak with a particular individual.",
+        "covers": [
+          "return a call",
+          "arrange callback",
+          "speak to specific person",
+          "return missed call",
+          "request callback",
+          "return dispenser"
+        ]
+      },
+      {
+        "name": "Showroom & Viewing",
+        "description": "Customers inquiring about visiting the showroom or viewing products.",
+        "covers": [
+          "inquire about showroom/product viewing",
+          "inquire about showroom visit",
+          "check opening hours"
+        ]
+      },
+      {
+        "name": "General Inquiry & Unclear",
+        "description": "Customers with broad questions or intents that are not clearly defined.",
+        "covers": [
+          "unknown",
+          "unclear",
+          "general enquiry",
+          "follow up on inquiry",
+          "greeting"
+        ]
+      },
+      {
+        "name": "Product Exchange",
+        "description": "Customers requesting to exchange a product.",
+        "covers": [
+          "product exchange"
+        ]
+      }
+    ]
+  }
+}

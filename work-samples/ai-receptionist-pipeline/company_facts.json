@@ -1,0 +1,30 @@
+{
+  "_note": "Authoritative company facts for the AI receptionist's ai_can_answer responses. Edit these freely. TODO fields still need real values from the user.",
+
+  "product_categories": "INTERNAL — for the AI's judgement only, never read this list aloud to callers. We sell: sheds, garages, carports, greenhouses, furniture, garage storage, racking, outdoor products, and tools. We do NOT sell clearly unrelated items such as electronics/phones, food/groceries, clothing, or live plants/soil. If unsure, treat it as something we may sell.",
+
+  "opening_hours": "Monday to Friday 9:00am-5:00pm; Saturday 10:00am-1:00pm; closed Sundays.",
+  "pickup_hours": "Weekdays 9:00am-4:00pm; Saturday 10:00am-1:00pm.",
+  "address": "1 Example Street, Example Suburb VIC 3000, Australia.",
+  "showroom_note": "Primarily a warehouse and office; visitors welcome to view products. Only this Example Suburb location (no other-city showrooms).",
+
+  "dispatch_policy": "95% of orders are dispatched the next working day for items not on pre-order or backorder. Furniture items not on pre-order/backorder that require quality check and packaging: allow 1-2 weeks before shipping.",
+
+  "returns_policy": "Policies vary by product. Direct customers to the User Centre or the Contact Us section on the website for detailed return/exchange information.",
+
+  "warranty_policy": "Warranty varies by product. Direct customers to the User Centre or the Contact Us section on the website for warranty details.",
+
+  "damaged_item_process": "Email photos of the damage plus order number to support@example.com before opening/using the item.",
+
+  "support_email": "support@example.com",
+  "sales_email": "TODO",
+
+  "payment_methods": "TODO (calls mention bank transfer, credit card, payment link, cash on pickup; confirm surcharges)",
+
+  "routing_extensions": {
+    "sales_group": "Sales queue — 105 a colleague (lead), 117 a colleague, 124 a colleague. New / before-purchase: quotes, product info, stock, placing orders, showroom, price negotiation, escalation.",
+    "operations_group": "Operations queue — 115 a colleague, 106 a colleague. Existing / after-purchase: delivery cost & status, pickup, order status/changes/cancellation, payment, refund.",
+    "warehouse": "122 — physical stock confirmation / pickup readiness.",
+    "after_sales_no_route": "AI-handled, NOT routed: complaints/damaged/returns -> email support@example.com; warranty/change-of-mind -> website."
+  }
+}

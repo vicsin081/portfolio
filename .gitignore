@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated output
+*.xlsx
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

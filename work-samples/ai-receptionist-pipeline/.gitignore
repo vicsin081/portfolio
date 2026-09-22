@@ -1,0 +1,4 @@
+# Raw call data is never committed: recordings and transcripts contain customer PII.
+*.wav
+output/
+staff_faq.pdf
