@@ -10,7 +10,7 @@ resolution, verification, lesson.
 |---|---|---|---|---|
 | 1 | Pipeline fell back to Azure CLI authentication | CI/CD configuration | Created a service principal and GitHub Secrets | Configuration (no code change) |
 | 2 | Role assignment failed with `AuthorizationFailed` | RBAC | Granted `User Access Administrator` to the pipeline identity | Configuration (no code change) |
-| 3 | AKS update rejected: OIDC issuer cannot be disabled | Configuration drift | Declared `oidc_issuer_enabled = true` | [`bbef8cd`](https://github.com/vicsin081/portfolio/commit/bbef8cd) |
+| 3 | AKS update rejected: OIDC issuer cannot be disabled | Configuration drift | Declared `oidc_issuer_enabled = true` | [`d55e005`](https://github.com/vicsin081/portfolio/commit/d55e005) |
 
 ---
 

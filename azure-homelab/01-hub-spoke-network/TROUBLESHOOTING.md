@@ -8,11 +8,11 @@ Where a code change was needed, the fix is a separate commit linked below.
 
 | # | Issue | Category | Resolution | Commit |
 |---|---|---|---|---|
-| 1 | `Standard_B1s` capacity unavailable in Southeast Asia | Capacity | Moved deployment to Australia East | [`566714b`](https://github.com/vicsin081/portfolio/commit/566714b) |
-| 2 | `Standard_B2s_v2` quota is zero on the subscription | Quota | Reverted to a VM family with quota | [`1085e27`](https://github.com/vicsin081/portfolio/commit/1085e27), [`3b8079d`](https://github.com/vicsin081/portfolio/commit/3b8079d) |
-| 3 | `Standard_B1s` also unavailable in Australia East | Capacity | Selected `Standard_D2s_v3` after checking capacity and quota | [`5f890d7`](https://github.com/vicsin081/portfolio/commit/5f890d7) |
+| 1 | `Standard_B1s` capacity unavailable in Southeast Asia | Capacity | Moved deployment to Australia East | [`6d09d8e`](https://github.com/vicsin081/portfolio/commit/6d09d8e) |
+| 2 | `Standard_B2s_v2` quota is zero on the subscription | Quota | Reverted to a VM family with quota | [`2ce3195`](https://github.com/vicsin081/portfolio/commit/2ce3195), [`af32f59`](https://github.com/vicsin081/portfolio/commit/af32f59) |
+| 3 | `Standard_B1s` also unavailable in Australia East | Capacity | Selected `Standard_D2s_v3` after checking capacity and quota | [`d4bed04`](https://github.com/vicsin081/portfolio/commit/d4bed04) |
 | 4 | Terraform state out of sync after an interrupted destroy | State management | Manual cleanup and state reset | Operational (no code change) |
-| 5 | Website unreachable although Nginx was running | Network security | Added an NSG rule for `Internet` traffic | [`d477f10`](https://github.com/vicsin081/portfolio/commit/d477f10) |
+| 5 | Website unreachable although Nginx was running | Network security | Added an NSG rule for `Internet` traffic | [`40523b9`](https://github.com/vicsin081/portfolio/commit/40523b9) |
 
 ---
 
