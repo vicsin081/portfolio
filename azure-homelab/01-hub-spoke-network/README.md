@@ -1,6 +1,34 @@
-# Azure HomeLab — Hub-Spoke Network (Basic)
+# 01 - Hub-Spoke Network
 
-Terraform deployment of a hub-spoke network on Azure covering core AZ-104 topics: VNet peering, Standard Load Balancer, Network Security Groups, Azure Bastion, and VPN Gateway.
+Terraform deployment of a hub-spoke network on Azure: two peered VNets, a Standard Load
+Balancer distributing HTTP traffic across two Nginx VMs, Azure Bastion for SSH without public
+port 22, and NSG rules scoped by service tag.
+
+| | |
+|---|---|
+| **Goal** | Build and operate the core AZ-104 networking pattern end to end |
+| **Resource group** | `rg-homelab-basic` (Australia East) |
+| **Stack** | Terraform >= 1.5, azurerm provider, Ubuntu 22.04, Nginx |
+| **Deploy time** | 10-15 minutes (Azure Bastion accounts for about 10) |
+| **Status** | Complete - deployed, verified, destroyed |
+| **Issues resolved** | 5 - see [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
+
+---
+
+## Overview
+
+The hub VNet holds shared services (Azure Bastion and an optional VPN Gateway). The spoke VNet
+holds the workload: two Linux VMs running Nginx behind a Standard Load Balancer. The VNets
+are peered in both directions, and the only way to reach the VMs over SSH is through Bastion
+in the hub.
+
+The design demonstrates three things:
+
+1. **Network isolation** - workloads live in a separate VNet and are reachable only through
+   explicitly allowed paths.
+2. **Load-balanced availability** - health probes remove an unhealthy VM from rotation
+   automatically.
+3. **No public management ports** - SSH is available only from the Bastion subnet.
 
 ## Architecture
 
@@ -9,10 +37,9 @@ Terraform deployment of a hub-spoke network on Azure covering core AZ-104 topics
                                       |
                                    HTTP :80
                                       |
-                                      v
                              +------------------+
-                             |     pip-lb       |
-                             |  Static Public IP|
+                             |      pip-lb      |
+                             | Static Public IP |
                              +------------------+
                                       |
 +----------------------------------------------------------+
@@ -29,99 +56,126 @@ Terraform deployment of a hub-spoke network on Azure covering core AZ-104 topics
 | [VPN GW - disabled]  |  VNet    |                         |
 |                      | Peering  | NSG (nsg-spoke-workload)|
 | AzureBastionSubnet   |<========>| Internet     -> :80     |
-| 10.0.2.0/26          |(bidirect)| AzureLoadBalancer->:80  |
+| 10.0.2.0/26          |(bidirect)| AzureLoadBalancer -> :80|
 |                      |          | 10.0.2.0/26  -> :22     |
 | +------------------+ |          |                         |
 | | Azure Bastion    | |          | Standard Load Balancer  |
 | | bastion-hub      +-+--SSH:22->|   lb-spoke              |
 | | Basic SKU        | |          |   HTTP probe :80 / 5s   |
 | +------------------+ |          |        /         \      |
-|                      |          |       / Round-Robin\    |
+|                      |          |       / Round-robin \   |
 +----------------------+          |   [vm-1]         [vm-2] |
          |                        |   Nginx           Nginx |
     +-----------+                 |   Ubuntu 22.04  D2s_v3  |
     |pip-bastion|                 +-------------------------+
-    |Static IP  |
+    | Static IP |
     +-----------+
          |
     Browser HTTPS
-    (SSH Management)
+    (SSH management)
 ```
 
-| Component | Specification |
+## Components
+
+| Component | Configuration | Purpose |
+|---|---|---|
+| Hub VNet | `10.0.0.0/16` with `GatewaySubnet` and `AzureBastionSubnet` | Shared services |
+| Spoke VNet | `10.1.0.0/16` with `workload-subnet` | Application workload |
+| VNet peering | Bidirectional, gateway transit enabled on the hub side | Hub-spoke connectivity |
+| Standard Load Balancer | Static public IP, HTTP probe on port 80 every 5 seconds | Distributes traffic across VMs |
+| Virtual machines | 2 x Ubuntu 22.04, `Standard_D2s_v3`, Nginx installed via cloud-init | Web tier |
+| Azure Bastion | Basic SKU | Browser-based SSH, no public port 22 |
+| Network Security Group | See rules below | Least-privilege inbound access |
+| VPN Gateway | `VpnGw1`, RouteBased (commented out by default) | Optional site-to-site connectivity |
+
+### NSG inbound rules (`nsg-spoke-workload`)
+
+| Priority | Name | Source | Port | Reason |
+|---|---|---|---|---|
+| 100 | Allow-HTTP-from-Internet | `Internet` | 80 | Client traffic (Standard LB preserves the client source IP) |
+| 110 | Allow-HTTP-from-LB-Probe | `AzureLoadBalancer` | 80 | Health probes from `168.63.129.16` |
+| 120 | Allow-SSH-from-Bastion | `10.0.2.0/26` | 22 | Management access through Bastion only |
+
+## Repository contents
+
+| File | Purpose |
 |---|---|
-| Hub VNet | 10.0.0.0/16 — gateway transit and Bastion |
-| Spoke VNet | 10.1.0.0/16 — workload VMs behind load balancer |
-| VNet Peering | Bidirectional, gateway transit enabled |
-| Standard Load Balancer | Round-robin HTTP across 2 Ubuntu VMs running Nginx |
-| Azure Bastion | Browser-based SSH — no public port 22 exposure |
-| NSG | Internet→80, AzureLoadBalancer→80, Bastion subnet→22 |
+| `terraform/main.tf` | Provider configuration and resource group |
+| `terraform/variables.tf` | Input variables and defaults (region, VM size, admin user) |
+| `terraform/network.tf` | VNets, subnets, peering, NSG and NSG association |
+| `terraform/compute.tf` | NICs, backend pool associations, VMs with cloud-init |
+| `terraform/loadbalancer.tf` | Public IP, load balancer, health probe, load-balancing rule |
+| `terraform/vpn.tf` | Azure Bastion, and the VPN Gateway (commented out) |
+| `terraform/outputs.tf` | Load balancer public IP and Bastion name |
+| `screenshots/` | Portal evidence of the working deployment |
+| `TROUBLESHOOTING.md` | Deployment issues and their root causes |
 
-## Prerequisites
+## Deployment
 
-- Azure CLI authenticated — `az login`
-- Terraform >= 1.5.0
-- Standard DSv3 vCPU quota in target region (2 vCPUs per VM, 4 total)
+### Prerequisites
 
-## Deploy
+- Azure CLI, signed in with `az login`
+- Terraform 1.5.0 or later
+- Standard DSv3 family quota of at least 4 vCPUs in the target region (2 VMs x 2 vCPUs)
+
+### Deploy
 
 ```powershell
-$env:TF_VAR_admin_password = "YourStrongP@ssw0rd!"
+$env:TF_VAR_admin_password = "<strong-password>"
 cd terraform
 terraform init
 terraform plan
 terraform apply
 ```
 
-Deployment takes approximately 10–15 minutes. Azure Bastion is the bottleneck at ~10 minutes.
+### Verify
 
-## Verify
+1. Open the `load_balancer_public_ip` output in a browser.
+2. Refresh several times; the response alternates between `Hello from vm-1` and `Hello from vm-2`.
+3. In the Portal, open `lb-spoke` > Backend pools and confirm both VMs report Healthy.
 
-Open `load_balancer_public_ip` from the Terraform output in a browser.  
-Refresh to observe round-robin responses alternating between `vm-1` and `vm-2`.
-
-## Cost Controls
-
-| Measure | Detail |
-|---|---|
-| Budget alert | $50 AUD with 50/80/100% email notifications |
-| VM size | Standard_D2s_v3 — B1s frequently sold out in region |
-| OS disk | Standard_LRS — ~60% cheaper than Premium SSD |
-| Bastion SKU | Basic — ~50% cheaper than Standard |
-| VPN Gateway | Commented out by default — ~$6 AUD/day when active |
-| Tags | `Project=HomeLab-Basic` for cost filtering in Cost Management |
-
-## AZ-104 Coverage
-
-- Virtual Networks, subnets, CIDR allocation
-- VNet Peering (bidirectional, gateway transit)
-- VPN Gateway (RouteBased, VpnGw1 SKU)
-- Azure Bastion (vs. jump box pattern)
-- Standard Load Balancer (health probes, backend pools, NSG interaction)
-- Network Security Groups (service tags, rule priority)
-- Resource Group governance and tagging
-
-## File Reference
-
-| File | Purpose |
-|---|---|
-| `main.tf` | Provider config and resource group |
-| `variables.tf` | Input variables with defaults |
-| `network.tf` | Hub/Spoke VNets, subnets, peering, NSG |
-| `compute.tf` | VMs and NIC-to-LB backend associations |
-| `loadbalancer.tf` | Public IP, LB, health probe, forwarding rules |
-| `vpn.tf` | VPN Gateway (commented out by default) and Azure Bastion |
-| `outputs.tf` | LB public IP and Bastion name post-deploy |
-
-## Cleanup
+### Clean up
 
 ```powershell
 terraform destroy -auto-approve
 ```
 
-Confirm `rg-homelab-basic` is removed in the Azure Portal before closing the session.
+Confirm that `rg-homelab-basic` no longer exists in the Portal. Do not interrupt a running
+destroy (see Issue 4 in the troubleshooting log).
 
-## Troubleshooting
+## Evidence
 
-See [troubleshoot.md](troubleshoot.md) for issues encountered during deployment and their resolutions.  
-Each fix is preserved as a separate commit in git history.
+**Load balancer backend pool - both VMs healthy**
+
+![LB backend pool healthy](screenshots/05-lb-backend-pool-healthy.png)
+
+**NSG inbound rules after the Issue 5 fix**
+
+![NSG inbound rules](screenshots/08-nsg-inbound-rules.png)
+
+## Cost controls
+
+| Measure | Detail |
+|---|---|
+| Budget alert | AUD 50 budget with email notifications at 50, 80 and 100 percent (Cost Management) |
+| VM size | `Standard_D2s_v3` - the smallest size with both capacity and quota available (see Issues 1-3) |
+| OS disk | `Standard_LRS`, roughly 60 percent cheaper than Premium SSD |
+| Bastion SKU | Basic, roughly 50 percent cheaper than Standard |
+| VPN Gateway | Disabled by default; costs about AUD 6 per day when running |
+| Tagging | `Project=HomeLab-Basic` for filtering in Cost Management |
+
+## Skills demonstrated
+
+| Area | Detail |
+|---|---|
+| Terraform | Multi-file layout, variables, outputs, recovery from corrupted state |
+| Azure networking | VNet design, CIDR planning, bidirectional peering, gateway transit |
+| Network security | NSG rule priorities and service tags; Standard LB source-IP behaviour |
+| Load balancing | Standard SKU, health probes, backend pools |
+| Secure access | Azure Bastion in place of a jump box or public SSH |
+| Capacity planning | Distinguishing regional SKU capacity from subscription quota |
+
+## Related documents
+
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - five deployment issues with root cause and fix
+- [Azure HomeLab overview](../README.md)
